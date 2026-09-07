@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "updated": "2026-09-07T16:20+00:00",
+  "updated": "2026-09-07T17:18+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -32,13 +32,8 @@
         }
       ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "06": {
@@ -70,13 +65,8 @@
         }
       ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "83": {
@@ -99,16 +89,17 @@
       }
     },
     "84": {
-      "niveau": "vert",
+      "niveau": "orange",
       "nom": "Vaucluse",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "orange"
+        }
+      ],
       "demain": {
-        "niveau": "orange",
+        "niveau": "jaune",
         "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "orange"
-          },
           {
             "phenomene": "Pluie-inondation",
             "niveau": "jaune"
@@ -131,21 +122,17 @@
       }
     },
     "11": {
-      "niveau": "vert",
+      "niveau": "orange",
       "nom": "Aude",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "orange"
+        }
+      ],
       "demain": {
-        "niveau": "orange",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "orange"
-          },
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "12": {
@@ -158,15 +145,24 @@
       }
     },
     "30": {
-      "niveau": "vert",
+      "niveau": "orange",
       "nom": "Gard",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "orange"
+        }
+      ],
       "demain": {
         "niveau": "orange",
         "phenomenes": [
           {
             "phenomene": "Orages",
             "niveau": "orange"
+          },
+          {
+            "phenomene": "Pluie-inondation",
+            "niveau": "jaune"
           }
         ]
       }
