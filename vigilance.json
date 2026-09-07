@@ -1,0 +1,102 @@
+{
+  "date": "2026-09-07",
+  "updated": "2026-09-07T10:10+00:00",
+  "source": "Meteo-France via Opendatasoft",
+  "departements": {
+    "04": {
+      "niveau": "vert",
+      "nom": "Alpes-de-Haute-Provence",
+      "phenomenes": []
+    },
+    "05": {
+      "niveau": "vert",
+      "nom": "Hautes-Alpes",
+      "phenomenes": []
+    },
+    "06": {
+      "niveau": "vert",
+      "nom": "Alpes-Maritimes",
+      "phenomenes": []
+    },
+    "13": {
+      "niveau": "vert",
+      "nom": "Bouches-du-Rhone",
+      "phenomenes": []
+    },
+    "83": {
+      "niveau": "vert",
+      "nom": "Var",
+      "phenomenes": []
+    },
+    "84": {
+      "niveau": "vert",
+      "nom": "Vaucluse",
+      "phenomenes": []
+    },
+    "09": {
+      "niveau": "vert",
+      "nom": "Ariege",
+      "phenomenes": []
+    },
+    "11": {
+      "niveau": "vert",
+      "nom": "Aude",
+      "phenomenes": []
+    },
+    "12": {
+      "niveau": "vert",
+      "nom": "Aveyron",
+      "phenomenes": []
+    },
+    "30": {
+      "niveau": "vert",
+      "nom": "Gard",
+      "phenomenes": []
+    },
+    "31": {
+      "niveau": "vert",
+      "nom": "Haute-Garonne",
+      "phenomenes": []
+    },
+    "32": {
+      "niveau": "vert",
+      "nom": "Gers",
+      "phenomenes": []
+    },
+    "34": {
+      "niveau": "vert",
+      "nom": "Herault",
+      "phenomenes": []
+    },
+    "46": {
+      "niveau": "vert",
+      "nom": "Lot",
+      "phenomenes": []
+    },
+    "48": {
+      "niveau": "vert",
+      "nom": "Lozere",
+      "phenomenes": []
+    },
+    "65": {
+      "niveau": "vert",
+      "nom": "Hautes-Pyrenees",
+      "phenomenes": []
+    },
+    "66": {
+      "niveau": "vert",
+      "nom": "Pyrenees-Orientales",
+      "phenomenes": []
+    },
+    "81": {
+      "niveau": "vert",
+      "nom": "Tarn",
+      "phenomenes": []
+    },
+    "82": {
+      "niveau": "vert",
+      "nom": "Tarn-et-Garonne",
+      "phenomenes": []
+    }
+  }
+}
