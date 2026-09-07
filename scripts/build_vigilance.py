@@ -183,7 +183,7 @@ def compute_alerts(levels, pheno):
     alerts = []
     for c in DEPTS:
         lj, l1 = levels["J"][c], levels["J1"][c]
-        if max(lj, l1) >= 0:
+        if max(lj, l1) >= 2:
             alerts.append({"code": c, "nom": DEPTS[c], "j": lj, "j1": l1,
                            "pj": phenos_list(pheno["J"][c]),
                            "p1": phenos_list(pheno["J1"][c])})
