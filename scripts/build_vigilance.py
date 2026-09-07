@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 """
-Construit vigilance.json pour les 19 departements de PACA + Occitanie.
+Construit vigilance.json (aujourd'hui J + demain J+1) pour les 19 departements
+de PACA + Occitanie, et notifie via une "issue" GitHub quand un departement est
+orange ou rouge sur J ou J+1.
 
 Source : jeu de donnees public "Meteo Vigilance niveau departemental"
 (Opendatasoft, alimente par Meteo-France) — acces libre, sans jeton.
 
-Le script DECOUVRE les noms de champs au demarrage (departement / couleur /
-echeance / phenomene), il est donc robuste si la source renomme ses colonnes.
-Il affiche ce qu'il a trouve dans les logs de l'Action.
+Notifications : utilise le GITHUB_TOKEN fourni automatiquement par l'Action
+(aucun secret a configurer). Cree une issue quand la situation d'alerte change,
+mentionne le proprietaire du depot, et cloture l'ancienne alerte au retour au vert.
 """
 
-import json, sys, datetime, gzip, zlib, urllib.parse, urllib.request
+import json, os, sys, datetime, gzip, zlib, urllib.parse, urllib.request
 
 DATASET = "weatherref-france-vigilance-meteo-departement"
 BASE = f"https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/{DATASET}/records"
+STATE_FILE = "alert_state.json"
 
 DEPTS = {
     "04": "Alpes-de-Haute-Provence", "05": "Hautes-Alpes", "06": "Alpes-Maritimes",
@@ -25,7 +28,6 @@ DEPTS = {
 COLORS = {"vert": 0, "jaune": 1, "orange": 2, "rouge": 3}
 RANK_TO_COLOR = {v: k for k, v in COLORS.items()}
 
-# Codes officiels des phenomenes de vigilance Meteo-France
 PHENO_CODES = {
     "1": "Vent violent", "2": "Pluie-inondation", "3": "Orages", "4": "Crues",
     "5": "Neige-verglas", "6": "Canicule", "7": "Grand froid", "8": "Avalanches",
@@ -35,16 +37,16 @@ PHENO_FIELDS = ["phenomene", "phenomene_libelle", "libelle_phenomene", "nom_phen
                 "phenomene_nom", "risque", "type_risque", "type", "libelle"]
 
 
+# ------------------------- HTTP (donnees vigilance) -------------------------
 def get(url):
     req = urllib.request.Request(url, headers={
         "User-Agent": "vigilance-pacao/1.0",
         "Accept": "application/json",
-        "Accept-Encoding": "identity",   # demande une reponse non compressee
+        "Accept-Encoding": "identity",
     })
     with urllib.request.urlopen(req, timeout=30) as r:
         raw = r.read()
         enc = (r.headers.get("Content-Encoding") or "").lower()
-        # repli : certains serveurs compressent quand meme -> on decompresse
         if enc == "gzip" or raw[:2] == b"\x1f\x8b":
             raw = gzip.decompress(raw)
         elif enc == "deflate":
@@ -62,6 +64,7 @@ def fetch_page(offset, limit=100, where=None):
     return get(BASE + "?" + urllib.parse.urlencode(params))
 
 
+# ------------------------- normalisation -------------------------
 def norm_color(val):
     if val is None:
         return None
@@ -77,7 +80,6 @@ def norm_color(val):
 
 
 def norm_pheno(val, strict=False):
-    """Ramene une valeur (code 1-9 ou texte) a un libelle de phenomene lisible."""
     if val is None:
         return None
     s = str(val).strip()
@@ -96,7 +98,7 @@ def norm_pheno(val, strict=False):
             return label
     if strict:
         return None
-    return s[:1].upper() + s[1:]   # phenomene inconnu : on garde le libelle brut
+    return s[:1].upper() + s[1:]
 
 
 def discover_fields(sample):
@@ -116,7 +118,6 @@ def discover_fields(sample):
         low = [v.lower() for v in svals]
         if ech_field is None and any(v in ("j", "j1", "j+1", "j 1") for v in low):
             ech_field = k
-    # phenomene : d'abord les noms de champ connus, sinon detection par valeurs
     for cand in PHENO_FIELDS:
         if cand in keys:
             pheno_field = cand
@@ -136,10 +137,142 @@ def code_of(rec, f):
     return str(rec.get(f, "")).strip().zfill(2)
 
 
-def is_today(rec, ech_field):
+def echeance_key(rec, ech_field):
+    """Retourne 'J' (aujourd'hui), 'J1' (demain) ou None."""
     if not ech_field:
-        return True
-    return str(rec.get(ech_field, "")).strip().lower() in ("j", "")
+        return "J"
+    v = str(rec.get(ech_field, "")).strip().lower()
+    if v in ("j", ""):
+        return "J"
+    if v in ("j1", "j+1", "j 1"):
+        return "J1"
+    return None
+
+
+# ------------------------- agregation -------------------------
+def aggregate(recs, dept_f, color_f, ech_f, pheno_f):
+    levels = {"J": {c: 0 for c in DEPTS}, "J1": {c: 0 for c in DEPTS}}
+    pheno = {"J": {c: {} for c in DEPTS}, "J1": {c: {} for c in DEPTS}}
+    for r in recs:
+        code = code_of(r, dept_f)
+        if code not in DEPTS:
+            continue
+        key = echeance_key(r, ech_f)
+        if key is None:
+            continue
+        col = norm_color(r.get(color_f))
+        if not col:
+            continue
+        rank = COLORS[col]
+        if rank > levels[key][code]:
+            levels[key][code] = rank
+        if rank >= 1 and pheno_f:
+            name = norm_pheno(r.get(pheno_f))
+            if name and rank > pheno[key][code].get(name, -1):
+                pheno[key][code][name] = rank
+    return levels, pheno
+
+
+def phenos_list(d):
+    return [{"phenomene": n, "niveau": RANK_TO_COLOR[rk]}
+            for n, rk in sorted(d.items(), key=lambda kv: -kv[1])]
+
+
+def compute_alerts(levels, pheno):
+    """Departements orange/rouge sur J ou J1. Retourne (liste, signature)."""
+    alerts = []
+    for c in DEPTS:
+        lj, l1 = levels["J"][c], levels["J1"][c]
+        if max(lj, l1) >= 2:
+            alerts.append({"code": c, "nom": DEPTS[c], "j": lj, "j1": l1,
+                           "pj": phenos_list(pheno["J"][c]),
+                           "p1": phenos_list(pheno["J1"][c])})
+    alerts.sort(key=lambda a: a["code"])
+    sig = ";".join(f"{a['code']}={a['j']}{a['j1']}" for a in alerts)
+    return alerts, sig
+
+
+# ------------------------- notification GitHub -------------------------
+def build_issue(alerts, owner):
+    maxrank = max(max(a["j"], a["j1"]) for a in alerts)
+    word = "ROUGE" if maxrank == 3 else "orange"
+    emoji = "\U0001F534" if maxrank == 3 else "\U0001F7E0"
+    codes = ", ".join(a["code"] for a in alerts)
+    title = f"{emoji} Vigilance {word} — {codes}"
+    lines = ["Vigilance **orange/rouge** detectee sur les prochaines 24-48 h :", ""]
+    for a in alerts:
+        parts = []
+        if a["j"] >= 1:
+            ph = ", ".join(p["phenomene"] for p in a["pj"])
+            parts.append(f"aujourd'hui **{RANK_TO_COLOR[a['j']].upper()}**" + (f" ({ph})" if ph else ""))
+        if a["j1"] >= 1:
+            ph = ", ".join(p["phenomene"] for p in a["p1"])
+            parts.append(f"demain **{RANK_TO_COLOR[a['j1']].upper()}**" + (f" ({ph})" if ph else ""))
+        lines.append(f"- **{a['code']} {a['nom']}** — " + " · ".join(parts))
+    now = datetime.datetime.now(datetime.timezone.utc).astimezone().strftime("%d/%m/%Y %H:%M")
+    lines += ["", f"_Mis a jour le {now}._"]
+    if owner:
+        lines += ["", f"cc @{owner}"]
+    return title, "\n".join(lines)
+
+
+def gh_api(method, path, token, payload=None):
+    data = json.dumps(payload).encode() if payload is not None else None
+    req = urllib.request.Request("https://api.github.com" + path, data=data, method=method,
+        headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
+                 "User-Agent": "vigilance-pacao/1.0", "X-GitHub-Api-Version": "2022-11-28",
+                 "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        body = r.read().decode() or "{}"
+        return json.loads(body)
+
+
+def run_notifications(alerts, sig, state, repo, token):
+    """Cree/cloture une issue selon l'evolution. Retourne le nouvel etat."""
+    prev_sig = state.get("signature", "")
+    prev_issue = state.get("issue")
+    if sig == prev_sig:
+        print("[notif] pas de changement d'alerte")
+        return state
+
+    owner = repo.split("/")[0] if repo else ""
+    if not (token and repo):
+        print(f"[notif] (local) changement detecte -> {sig or 'aucune alerte'}")
+        return {"signature": sig, "issue": prev_issue}
+
+    try:
+        if alerts:
+            title, body = build_issue(alerts, owner)
+            issue = gh_api("POST", f"/repos/{repo}/issues", token, {"title": title, "body": body})
+            num = issue.get("number")
+            print(f"[notif] issue #{num} creee : {title}")
+            if prev_issue:
+                try:
+                    gh_api("POST", f"/repos/{repo}/issues/{prev_issue}/comments", token,
+                           {"body": "Situation mise a jour — voir la nouvelle alerte."})
+                    gh_api("PATCH", f"/repos/{repo}/issues/{prev_issue}", token, {"state": "closed"})
+                except Exception as e:
+                    print(f"[notif] cloture ancienne issue #{prev_issue} KO ({e})")
+            return {"signature": sig, "issue": num}
+        else:
+            if prev_issue:
+                gh_api("POST", f"/repos/{repo}/issues/{prev_issue}/comments", token,
+                       {"body": f"\u2705 Retour au vert — plus de vigilance orange/rouge sur les 19 departements. cc @{owner}"})
+                gh_api("PATCH", f"/repos/{repo}/issues/{prev_issue}", token, {"state": "closed"})
+                print(f"[notif] retour au vert — issue #{prev_issue} cloturee")
+            return {"signature": "", "issue": None}
+    except Exception as e:
+        print(f"[notif] ECHEC ({e}) — nouvelle tentative au prochain run")
+        return state
+
+
+# ------------------------- main -------------------------
+def load_state():
+    try:
+        with open(STATE_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {"signature": "", "issue": None}
 
 
 def main():
@@ -150,7 +283,7 @@ def main():
     print(f"[schema] total={total} dept={dept_f!r} color={color_f!r} "
           f"echeance={ech_f!r} phenomene={pheno_f!r}")
     if not dept_f or not color_f:
-        print("[ERREUR] champs departement/couleur non identifies. Exemple de record :")
+        print("[ERREUR] champs departement/couleur non identifies. Exemple :")
         print(json.dumps(sample[0] if sample else {}, ensure_ascii=False, indent=2))
         sys.exit(1)
 
@@ -176,42 +309,33 @@ def main():
         recs = [r for r in recs if code_of(r, dept_f) in DEPTS]
         print(f"[fetch] {len(recs)} records apres filtrage local")
 
-    levels = {c: 0 for c in DEPTS}
-    pheno_rank = {c: {} for c in DEPTS}   # dept -> {libelle: rang maxi}
-    for r in recs:
-        if not is_today(r, ech_f):
-            continue
-        code = code_of(r, dept_f)
-        if code not in DEPTS:
-            continue
-        col = norm_color(r.get(color_f))
-        if not col:
-            continue
-        rank = COLORS[col]
-        if rank > levels[code]:
-            levels[code] = rank
-        if rank >= 1 and pheno_f:                      # note le type des le jaune
-            name = norm_pheno(r.get(pheno_f))
-            if name:
-                prev = pheno_rank[code].get(name, -1)
-                if rank > prev:
-                    pheno_rank[code][name] = rank
+    levels, pheno = aggregate(recs, dept_f, color_f, ech_f, pheno_f)
 
     departements = {}
     for c in DEPTS:
-        phenos = [{"phenomene": n, "niveau": RANK_TO_COLOR[rk]}
-                  for n, rk in sorted(pheno_rank[c].items(), key=lambda kv: -kv[1])]
-        departements[c] = {"niveau": RANK_TO_COLOR[levels[c]], "nom": DEPTS[c],
-                           "phenomenes": phenos}
-
+        departements[c] = {
+            "niveau": RANK_TO_COLOR[levels["J"][c]], "nom": DEPTS[c],
+            "phenomenes": phenos_list(pheno["J"][c]),
+            "demain": {"niveau": RANK_TO_COLOR[levels["J1"][c]],
+                       "phenomenes": phenos_list(pheno["J1"][c])},
+        }
     now = datetime.datetime.now(datetime.timezone.utc).astimezone()
     out = {"date": now.date().isoformat(), "updated": now.isoformat(timespec="minutes"),
            "source": "Meteo-France via Opendatasoft", "departements": departements}
     with open("vigilance.json", "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
 
-    n = sum(1 for c in DEPTS if levels[c] >= 1)
-    print(f"[ok] vigilance.json ecrit — {n} departement(s) en vigilance")
+    alerts, sig = compute_alerts(levels, pheno)
+    n_today = sum(1 for c in DEPTS if levels["J"][c] >= 1)
+    print(f"[ok] vigilance.json ecrit — {n_today} dept en vigilance aujourd'hui, "
+          f"{len(alerts)} en orange/rouge (J ou J+1)")
+
+    state = load_state()
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    token = os.environ.get("GITHUB_TOKEN", "")
+    new_state = run_notifications(alerts, sig, state, repo, token)
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(new_state, f, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":
