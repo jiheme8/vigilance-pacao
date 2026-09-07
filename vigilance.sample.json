@@ -1,0 +1,26 @@
+{
+  "date": "2026-08-26",
+  "updated": "2026-08-26T07:05+02:00",
+  "source": "EXEMPLE (renomme en vigilance.json pour previsualiser le rendu)",
+  "departements": {
+    "04": {"niveau": "vert",  "nom": "Alpes-de-Haute-Provence", "phenomenes": []},
+    "05": {"niveau": "jaune", "nom": "Hautes-Alpes", "phenomenes": [{"phenomene":"Orages","niveau":"jaune"}]},
+    "06": {"niveau": "rouge", "nom": "Alpes-Maritimes", "phenomenes": [{"phenomene":"Pluie-inondation","niveau":"rouge"},{"phenomene":"Orages","niveau":"orange"},{"phenomene":"Vent violent","niveau":"jaune"}]},
+    "13": {"niveau": "orange","nom": "Bouches-du-Rhone", "phenomenes": [{"phenomene":"Canicule","niveau":"orange"}]},
+    "83": {"niveau": "orange","nom": "Var", "phenomenes": [{"phenomene":"Orages","niveau":"orange"},{"phenomene":"Crues","niveau":"orange"}]},
+    "84": {"niveau": "vert",  "nom": "Vaucluse", "phenomenes": []},
+    "09": {"niveau": "vert",  "nom": "Ariege", "phenomenes": []},
+    "11": {"niveau": "jaune", "nom": "Aude", "phenomenes": [{"phenomene":"Vent violent","niveau":"jaune"}]},
+    "12": {"niveau": "vert",  "nom": "Aveyron", "phenomenes": []},
+    "30": {"niveau": "orange","nom": "Gard", "phenomenes": [{"phenomene":"Pluie-inondation","niveau":"orange"}]},
+    "31": {"niveau": "vert",  "nom": "Haute-Garonne", "phenomenes": []},
+    "32": {"niveau": "vert",  "nom": "Gers", "phenomenes": []},
+    "34": {"niveau": "orange","nom": "Herault", "phenomenes": [{"phenomene":"Canicule","niveau":"orange"},{"phenomene":"Orages","niveau":"jaune"}]},
+    "46": {"niveau": "vert",  "nom": "Lot", "phenomenes": []},
+    "48": {"niveau": "vert",  "nom": "Lozere", "phenomenes": []},
+    "65": {"niveau": "jaune", "nom": "Hautes-Pyrenees", "phenomenes": [{"phenomene":"Neige-verglas","niveau":"jaune"}]},
+    "66": {"niveau": "rouge", "nom": "Pyrenees-Orientales", "phenomenes": [{"phenomene":"Canicule","niveau":"rouge"}]},
+    "81": {"niveau": "vert",  "nom": "Tarn", "phenomenes": []},
+    "82": {"niveau": "vert",  "nom": "Tarn-et-Garonne", "phenomenes": []}
+  }
+}
