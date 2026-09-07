@@ -1,21 +1,65 @@
 {
   "date": "2026-09-07",
-  "updated": "2026-09-07T11:20+00:00",
+  "updated": "2026-09-07T12:26+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": []
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ]
     },
     "05": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Hautes-Alpes",
-      "phenomenes": []
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ]
     },
     "06": {
-      "niveau": "orange",
+      "niveau": "jaune",
       "nom": "Alpes-Maritimes",
+      "phenomenes": [
+        {
+          "phenomene": "Canicule",
+          "niveau": "jaune"
+        },
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ]
+    },
+    "13": {
+      "niveau": "jaune",
+      "nom": "Bouches-du-Rhone",
+      "phenomenes": [
+        {
+          "phenomene": "Canicule",
+          "niveau": "jaune"
+        }
+      ]
+    },
+    "83": {
+      "niveau": "jaune",
+      "nom": "Var",
+      "phenomenes": [
+        {
+          "phenomene": "Canicule",
+          "niveau": "jaune"
+        }
+      ]
+    },
+    "84": {
+      "niveau": "orange",
+      "nom": "Vaucluse",
       "phenomenes": [
         {
           "phenomene": "Canicule",
@@ -23,30 +67,20 @@
         }
       ]
     },
-    "13": {
-      "niveau": "vert",
-      "nom": "Bouches-du-Rhone",
-      "phenomenes": []
-    },
-    "83": {
-      "niveau": "vert",
-      "nom": "Var",
-      "phenomenes": []
-    },
-    "84": {
-      "niveau": "vert",
-      "nom": "Vaucluse",
-      "phenomenes": []
-    },
     "09": {
       "niveau": "vert",
       "nom": "Ariege",
       "phenomenes": []
     },
     "11": {
-      "niveau": "vert",
+      "niveau": "orange",
       "nom": "Aude",
-      "phenomenes": []
+      "phenomenes": [
+        {
+          "phenomene": "Canicule",
+          "niveau": "orange"
+        }
+      ]
     },
     "12": {
       "niveau": "vert",
@@ -54,9 +88,14 @@
       "phenomenes": []
     },
     "30": {
-      "niveau": "vert",
+      "niveau": "orange",
       "nom": "Gard",
-      "phenomenes": []
+      "phenomenes": [
+        {
+          "phenomene": "Canicule",
+          "niveau": "orange"
+        }
+      ]
     },
     "31": {
       "niveau": "vert",
@@ -69,9 +108,14 @@
       "phenomenes": []
     },
     "34": {
-      "niveau": "vert",
+      "niveau": "orange",
       "nom": "Herault",
-      "phenomenes": []
+      "phenomenes": [
+        {
+          "phenomene": "Canicule",
+          "niveau": "orange"
+        }
+      ]
     },
     "46": {
       "niveau": "vert",
@@ -79,9 +123,14 @@
       "phenomenes": []
     },
     "48": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Lozere",
-      "phenomenes": []
+      "phenomenes": [
+        {
+          "phenomene": "Canicule",
+          "niveau": "jaune"
+        }
+      ]
     },
     "65": {
       "niveau": "vert",
@@ -89,9 +138,14 @@
       "phenomenes": []
     },
     "66": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": []
+      "phenomenes": [
+        {
+          "phenomene": "Canicule",
+          "niveau": "jaune"
+        }
+      ]
     },
     "81": {
       "niveau": "vert",
