@@ -35,6 +35,9 @@ PHENO_CODES = {
 }
 PHENO_FIELDS = ["phenomene", "phenomene_libelle", "libelle_phenomene", "nom_phenomene",
                 "phenomene_nom", "risque", "type_risque", "type", "libelle"]
+# Noms de colonne "couleur" connus (essayes en priorite)
+COLOR_FIELDS = ["couleur", "couleur_texte", "vigilance_couleur_texte", "risque_couleur",
+                "coloration", "couleur_niveau", "color", "etat_couleur"]
 
 
 # ------------------------- HTTP (donnees vigilance) -------------------------
@@ -101,25 +104,51 @@ def norm_pheno(val, strict=False):
     return s[:1].upper() + s[1:]
 
 
+def is_text_color(v):
+    return str(v).strip().lower() in COLORS   # vert/jaune/orange/rouge (jamais un chiffre seul)
+
+
 def discover_fields(sample):
     dept_field = color_field = ech_field = pheno_field = None
     keys = set()
     for rec in sample:
         keys |= set(rec.keys())
+
+    # --- departement : intersecte nos codes connus ---
     for k in keys:
-        vals = [rec.get(k) for rec in sample if rec.get(k) is not None]
-        if not vals:
-            continue
-        svals = [str(v).strip() for v in vals]
-        if dept_field is None and sum(1 for v in svals if v.zfill(2) in DEPTS) >= 3:
+        vals = [str(rec.get(k)).strip() for rec in sample if rec.get(k) is not None]
+        if vals and sum(1 for v in vals if v.zfill(2) in DEPTS) >= 3:
             dept_field = k
-        if color_field is None and sum(1 for v in svals if norm_color(v)) >= 3:
-            color_field = k
-        low = [v.lower() for v in svals]
-        if ech_field is None and any(v in ("j", "j1", "j+1", "j 1") for v in low):
+            break
+
+    # --- couleur : d'abord les noms connus, puis une colonne 100% texte-couleur ---
+    for cand in COLOR_FIELDS:
+        if cand in keys and any(norm_color(rec.get(cand)) for rec in sample):
+            color_field = cand
+            break
+    if color_field is None:
+        best, best_ratio = None, 0.0
+        for k in keys:
+            vals = [rec.get(k) for rec in sample if rec.get(k) is not None]
+            if len(vals) < 3:
+                continue
+            ratio = sum(1 for v in vals if is_text_color(v)) / len(vals)
+            # une vraie colonne couleur ne contient que vert/jaune/orange/rouge ;
+            # on ignore ainsi toute colonne de chiffres (phenomene code, etc.)
+            if ratio >= 0.5 and ratio > best_ratio:
+                best, best_ratio = k, ratio
+        color_field = best
+
+    # --- echeance : valeurs J / J1 ---
+    for k in keys:
+        vals = [str(rec.get(k)).strip().lower() for rec in sample if rec.get(k) is not None]
+        if any(v in ("j", "j1", "j+1", "j 1") for v in vals):
             ech_field = k
+            break
+
+    # --- phenomene : noms connus, sinon detection par valeurs (hors colonnes deja prises) ---
     for cand in PHENO_FIELDS:
-        if cand in keys:
+        if cand in keys and cand != color_field:
             pheno_field = cand
             break
     if pheno_field is None:
@@ -282,8 +311,11 @@ def main():
     dept_f, color_f, ech_f, pheno_f = discover_fields(sample)
     print(f"[schema] total={total} dept={dept_f!r} color={color_f!r} "
           f"echeance={ech_f!r} phenomene={pheno_f!r}")
+    if sample:
+        ex = {k: sample[0].get(k) for k in list(sample[0].keys())[:12]}
+        print("[sample] " + json.dumps(ex, ensure_ascii=False))
     if not dept_f or not color_f:
-        print("[ERREUR] champs departement/couleur non identifies. Exemple :")
+        print("[ERREUR] champs departement/couleur non identifies. Exemple complet :")
         print(json.dumps(sample[0] if sample else {}, ensure_ascii=False, indent=2))
         sys.exit(1)
 
