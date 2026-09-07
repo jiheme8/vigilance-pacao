@@ -3,11 +3,13 @@ on:
   push:
     paths-ignore:
       - 'vigilance.json'
+      - 'alert_state.json'
   schedule:
     - cron: "5 * * * *"
   workflow_dispatch: {}
 permissions:
   contents: write
+  issues: write
 concurrency:
   group: vigilance
   cancel-in-progress: false
@@ -19,27 +21,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Recuperer la vigilance
+      - name: Recuperer la vigilance et notifier
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/build_vigilance.py
-      - name: Publier vigilance.json si change
+      - name: Publier les fichiers si change
         run: |
-          if [ -z "$(git status --porcelain vigilance.json)" ]; then
+          if [ -z "$(git status --porcelain vigilance.json alert_state.json)" ]; then
             echo "Aucun changement."; exit 0
           fi
           git config user.name  "vigilance-bot"
           git config user.email "actions@github.com"
-          cp vigilance.json /tmp/vigilance.json
+          cp vigilance.json /tmp/v.json
+          cp alert_state.json /tmp/a.json 2>/dev/null || true
           n=0
           until [ $n -ge 5 ]; do
             git fetch origin main
             git reset --hard FETCH_HEAD
-            cp /tmp/vigilance.json vigilance.json
-            git add vigilance.json
-            if git diff --cached --quiet; then
-              echo "Identique au remote, rien a pousser."; exit 0
-            fi
+            cp /tmp/v.json vigilance.json
+            cp /tmp/a.json alert_state.json 2>/dev/null || true
+            git add vigilance.json alert_state.json
+            if git diff --cached --quiet; then echo "Rien a pousser."; exit 0; fi
             git commit -m "Vigilance $(date -u +'%Y-%m-%d %H:%M UTC')"
             if git push; then echo "Pousse."; exit 0; fi
-            n=$((n+1)); echo "Push rejete, nouvelle tentative ($n)..."; sleep 3
+            n=$((n+1)); echo "Push rejete, tentative $n..."; sleep 3
           done
-          echo "Echec du push apres plusieurs tentatives."; exit 1
+          echo "Echec du push."; exit 1
