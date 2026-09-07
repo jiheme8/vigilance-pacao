@@ -1,11 +1,16 @@
 name: Mise a jour vigilance
 on:
   push:
+    paths-ignore:
+      - 'vigilance.json'
   schedule:
     - cron: "5 * * * *"
   workflow_dispatch: {}
 permissions:
   contents: write
+concurrency:
+  group: vigilance
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,10 +23,23 @@ jobs:
         run: python scripts/build_vigilance.py
       - name: Publier vigilance.json si change
         run: |
-          if [ -n "$(git status --porcelain vigilance.json)" ]; then
-            git config user.name  "vigilance-bot"
-            git config user.email "actions@github.com"
-            git add vigilance.json
-            git commit -m "Vigilance $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push
+          if [ -z "$(git status --porcelain vigilance.json)" ]; then
+            echo "Aucun changement."; exit 0
           fi
+          git config user.name  "vigilance-bot"
+          git config user.email "actions@github.com"
+          cp vigilance.json /tmp/vigilance.json
+          n=0
+          until [ $n -ge 5 ]; do
+            git fetch origin main
+            git reset --hard FETCH_HEAD
+            cp /tmp/vigilance.json vigilance.json
+            git add vigilance.json
+            if git diff --cached --quiet; then
+              echo "Identique au remote, rien a pousser."; exit 0
+            fi
+            git commit -m "Vigilance $(date -u +'%Y-%m-%d %H:%M UTC')"
+            if git push; then echo "Pousse."; exit 0; fi
+            n=$((n+1)); echo "Push rejete, nouvelle tentative ($n)..."; sleep 3
+          done
+          echo "Echec du push apres plusieurs tentatives."; exit 1
