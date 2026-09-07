@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "updated": "2026-09-07T13:22+00:00",
+  "updated": "2026-09-07T13:49+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -11,7 +11,11 @@
           "phenomene": "Orages",
           "niveau": "jaune"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "05": {
       "niveau": "jaune",
@@ -21,7 +25,11 @@
           "phenomene": "Orages",
           "niveau": "jaune"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "06": {
       "niveau": "jaune",
@@ -35,7 +43,16 @@
           "phenomene": "Orages",
           "niveau": "jaune"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "jaune"
+          }
+        ]
+      }
     },
     "13": {
       "niveau": "jaune",
@@ -45,17 +62,30 @@
           "phenomene": "Canicule",
           "niveau": "jaune"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "jaune"
+          }
+        ]
+      }
     },
     "83": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Var",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        }
-      ]
+      "phenomenes": [],
+      "demain": {
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "jaune"
+          }
+        ]
+      }
     },
     "84": {
       "niveau": "orange",
@@ -65,27 +95,48 @@
           "phenomene": "Canicule",
           "niveau": "orange"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "orange",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "orange"
+          }
+        ]
+      }
     },
     "09": {
       "niveau": "vert",
       "nom": "Ariege",
-      "phenomenes": []
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "11": {
-      "niveau": "orange",
+      "niveau": "vert",
       "nom": "Aude",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "orange"
-        }
-      ]
+      "phenomenes": [],
+      "demain": {
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "jaune"
+          }
+        ]
+      }
     },
     "12": {
       "niveau": "vert",
       "nom": "Aveyron",
-      "phenomenes": []
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "30": {
       "niveau": "orange",
@@ -95,17 +146,34 @@
           "phenomene": "Canicule",
           "niveau": "orange"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "jaune"
+          }
+        ]
+      }
     },
     "31": {
       "niveau": "vert",
       "nom": "Haute-Garonne",
-      "phenomenes": []
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "32": {
       "niveau": "vert",
       "nom": "Gers",
-      "phenomenes": []
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "34": {
       "niveau": "orange",
@@ -115,12 +183,25 @@
           "phenomene": "Canicule",
           "niveau": "orange"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "orange",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "orange"
+          }
+        ]
+      }
     },
     "46": {
       "niveau": "vert",
       "nom": "Lot",
-      "phenomenes": []
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "48": {
       "niveau": "jaune",
@@ -130,12 +211,25 @@
           "phenomene": "Canicule",
           "niveau": "jaune"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "jaune"
+          }
+        ]
+      }
     },
     "65": {
       "niveau": "vert",
       "nom": "Hautes-Pyrenees",
-      "phenomenes": []
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "66": {
       "niveau": "jaune",
@@ -145,17 +239,38 @@
           "phenomene": "Canicule",
           "niveau": "jaune"
         }
-      ]
+      ],
+      "demain": {
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Canicule",
+            "niveau": "jaune"
+          },
+          {
+            "phenomene": "Orages",
+            "niveau": "jaune"
+          }
+        ]
+      }
     },
     "81": {
       "niveau": "vert",
       "nom": "Tarn",
-      "phenomenes": []
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     },
     "82": {
       "niveau": "vert",
       "nom": "Tarn-et-Garonne",
-      "phenomenes": []
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
+      }
     }
   }
 }
