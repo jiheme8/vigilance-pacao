@@ -10,7 +10,7 @@ echeance / phenomene), il est donc robuste si la source renomme ses colonnes.
 Il affiche ce qu'il a trouve dans les logs de l'Action.
 """
 
-import json, sys, datetime, urllib.parse, urllib.request
+import json, sys, datetime, gzip, zlib, urllib.parse, urllib.request
 
 DATASET = "weatherref-france-vigilance-meteo-departement"
 BASE = f"https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/{DATASET}/records"
@@ -36,9 +36,23 @@ PHENO_FIELDS = ["phenomene", "phenomene_libelle", "libelle_phenomene", "nom_phen
 
 
 def get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "vigilance-pacao/1.0"})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "vigilance-pacao/1.0",
+        "Accept": "application/json",
+        "Accept-Encoding": "identity",   # demande une reponse non compressee
+    })
     with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read().decode("utf-8"))
+        raw = r.read()
+        enc = (r.headers.get("Content-Encoding") or "").lower()
+        # repli : certains serveurs compressent quand meme -> on decompresse
+        if enc == "gzip" or raw[:2] == b"\x1f\x8b":
+            raw = gzip.decompress(raw)
+        elif enc == "deflate":
+            try:
+                raw = zlib.decompress(raw)
+            except zlib.error:
+                raw = zlib.decompress(raw, -zlib.MAX_WBITS)
+        return json.loads(raw.decode("utf-8"))
 
 
 def fetch_page(offset, limit=100, where=None):
