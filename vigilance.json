@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "updated": "2026-09-07T10:10+00:00",
+  "updated": "2026-09-07T10:16+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -14,9 +14,18 @@
       "phenomenes": []
     },
     "06": {
-      "niveau": "vert",
+      "niveau": "orange",
       "nom": "Alpes-Maritimes",
-      "phenomenes": []
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "orange"
+        },
+        {
+          "phenomene": "Pluie-inondation",
+          "niveau": "jaune"
+        }
+      ]
     },
     "13": {
       "niveau": "vert",
