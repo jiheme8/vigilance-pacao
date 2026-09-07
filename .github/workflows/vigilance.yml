@@ -1,5 +1,6 @@
 name: Mise a jour vigilance
 on:
+  push:
   schedule:
     - cron: "5 * * * *"
   workflow_dispatch: {}
