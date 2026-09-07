@@ -1,76 +1,60 @@
 {
   "date": "2026-09-07",
-  "updated": "2026-09-07T13:49+00:00",
+  "updated": "2026-09-07T13:56+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
       }
     },
     "05": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Hautes-Alpes",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
       }
     },
     "06": {
-      "niveau": "jaune",
+      "niveau": "orange",
       "nom": "Alpes-Maritimes",
       "phenomenes": [
         {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
+          "phenomene": "Orages",
+          "niveau": "orange"
         },
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
       "demain": {
-        "niveau": "jaune",
+        "niveau": "orange",
         "phenomenes": [
           {
-            "phenomene": "Canicule",
+            "phenomene": "Orages",
+            "niveau": "orange"
+          },
+          {
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
       }
     },
     "13": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Bouches-du-Rhone",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Canicule",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "83": {
@@ -78,32 +62,17 @@
       "nom": "Var",
       "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Canicule",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "84": {
-      "niveau": "orange",
+      "niveau": "vert",
       "nom": "Vaucluse",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "orange"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "orange",
-        "phenomenes": [
-          {
-            "phenomene": "Canicule",
-            "niveau": "orange"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "09": {
@@ -120,13 +89,8 @@
       "nom": "Aude",
       "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Canicule",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "12": {
@@ -139,22 +103,12 @@
       }
     },
     "30": {
-      "niveau": "orange",
+      "niveau": "vert",
       "nom": "Gard",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "orange"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Canicule",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "31": {
@@ -176,22 +130,12 @@
       }
     },
     "34": {
-      "niveau": "orange",
+      "niveau": "vert",
       "nom": "Herault",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "orange"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "orange",
-        "phenomenes": [
-          {
-            "phenomene": "Canicule",
-            "niveau": "orange"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "46": {
@@ -204,22 +148,12 @@
       }
     },
     "48": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Lozere",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Canicule",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "65": {
@@ -232,26 +166,12 @@
       }
     },
     "66": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Canicule",
-            "niveau": "jaune"
-          },
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "81": {
