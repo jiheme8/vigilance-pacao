@@ -27,23 +27,21 @@ jobs:
         run: python scripts/build_vigilance.py
       - name: Publier les fichiers si change
         run: |
-          if [ -z "$(git status --porcelain vigilance.json alert_state.json)" ]; then
-            echo "Aucun changement."; exit 0
-          fi
           git config user.name  "vigilance-bot"
           git config user.email "actions@github.com"
-          cp vigilance.json /tmp/v.json
-          cp alert_state.json /tmp/a.json 2>/dev/null || true
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Aucun changement."; exit 0
+          fi
+          git commit -m "Vigilance $(date -u +'%Y-%m-%d %H:%M UTC')"
           n=0
-          until [ $n -ge 5 ]; do
+          until git push; do
+            n=$((n+1))
+            if [ $n -ge 5 ]; then echo "Echec du push apres $n tentatives."; exit 1; fi
+            echo "Push rejete, resynchronisation ($n)..."
             git fetch origin main
-            git reset --hard FETCH_HEAD
-            cp /tmp/v.json vigilance.json
-            cp /tmp/a.json alert_state.json 2>/dev/null || true
-            git add vigilance.json alert_state.json
-            if git diff --cached --quiet; then echo "Rien a pousser."; exit 0; fi
-            git commit -m "Vigilance $(date -u +'%Y-%m-%d %H:%M UTC')"
-            if git push; then echo "Pousse."; exit 0; fi
-            n=$((n+1)); echo "Push rejete, tentative $n..."; sleep 3
+            git reset --soft FETCH_HEAD
+            git add -A
+            git commit -m "Vigilance $(date -u +'%Y-%m-%d %H:%M UTC')" || true
           done
-          echo "Echec du push."; exit 1
+          echo "Pousse."
