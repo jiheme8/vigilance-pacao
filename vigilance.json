@@ -1,6 +1,6 @@
 {
   "date": "2026-09-08",
-  "updated": "2026-09-08T16:22+00:00",
+  "updated": "2026-09-08T17:20+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -8,7 +8,7 @@
       "nom": "Alpes-de-Haute-Provence",
       "phenomenes": [
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -16,7 +16,7 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
@@ -27,17 +27,13 @@
       "nom": "Hautes-Alpes",
       "phenomenes": [
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          },
           {
             "phenomene": "Pluie-inondation",
             "niveau": "jaune"
@@ -50,11 +46,7 @@
       "nom": "Alpes-Maritimes",
       "phenomenes": [
         {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        },
-        {
-          "phenomene": "Canicule",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -64,14 +56,19 @@
       }
     },
     "13": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Bouches-du-Rhone",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Pluie-inondation",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
@@ -82,7 +79,7 @@
       "nom": "Var",
       "phenomenes": [
         {
-          "phenomene": "Canicule",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -96,21 +93,7 @@
       "nom": "Vaucluse",
       "phenomenes": [
         {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
-      "demain": {
-        "niveau": "vert",
-        "phenomenes": []
-      }
-    },
-    "09": {
-      "niveau": "jaune",
-      "nom": "Ariege",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -118,7 +101,26 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
+            "niveau": "jaune"
+          }
+        ]
+      }
+    },
+    "09": {
+      "niveau": "jaune",
+      "nom": "Ariege",
+      "phenomenes": [
+        {
+          "phenomene": "Pluie-inondation",
+          "niveau": "jaune"
+        }
+      ],
+      "demain": {
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
@@ -129,11 +131,7 @@
       "nom": "Aude",
       "phenomenes": [
         {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        },
-        {
-          "phenomene": "Canicule",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -141,7 +139,7 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
@@ -152,7 +150,7 @@
       "nom": "Aveyron",
       "phenomenes": [
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -160,7 +158,7 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
@@ -171,11 +169,7 @@
       "nom": "Gard",
       "phenomenes": [
         {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        },
-        {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -183,7 +177,7 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
@@ -194,7 +188,7 @@
       "nom": "Haute-Garonne",
       "phenomenes": [
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -202,7 +196,7 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
@@ -222,18 +216,13 @@
       "nom": "Herault",
       "phenomenes": [
         {
-          "phenomene": "Canicule",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "46": {
@@ -246,17 +235,17 @@
       }
     },
     "48": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Lozere",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Pluie-inondation",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "65": {
@@ -269,14 +258,19 @@
       }
     },
     "66": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Pluie-inondation",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
@@ -287,7 +281,7 @@
       "nom": "Tarn",
       "phenomenes": [
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune"
         }
       ],
@@ -295,7 +289,7 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune"
           }
         ]
