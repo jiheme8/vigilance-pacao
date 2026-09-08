@@ -1,6 +1,6 @@
 {
   "date": "2026-09-08",
-  "updated": "2026-09-08T21:18+00:00",
+  "updated": "2026-09-08T22:19+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -244,6 +244,10 @@
       "nom": "Herault",
       "phenomenes": [
         {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        },
+        {
           "phenomene": "Canicule",
           "niveau": "jaune"
         }
@@ -268,14 +272,9 @@
       }
     },
     "48": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Lozere",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
@@ -315,9 +314,14 @@
       }
     },
     "81": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Tarn",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
