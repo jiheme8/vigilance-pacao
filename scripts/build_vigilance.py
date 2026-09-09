@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 """
 Construit vigilance.json (aujourd'hui J + demain J+1) pour les 19 departements
-de PACA + Occitanie, et notifie via une "issue" GitHub quand un departement est
-orange ou rouge sur J ou J+1.
+de PACA + Occitanie, avec la fenetre temporelle (debut/fin) de chaque alerte,
+et notifie via une "issue" GitHub quand un departement est orange ou rouge.
 
-Source : jeu de donnees public "Meteo Vigilance niveau departemental"
-(Opendatasoft, alimente par Meteo-France) — acces libre, sans jeton.
-
-Notifications : utilise le GITHUB_TOKEN fourni automatiquement par l'Action
-(aucun secret a configurer). Cree une issue quand la situation d'alerte change,
-mentionne le proprietaire du depot, et cloture l'ancienne alerte au retour au vert.
+Source : "Meteo Vigilance niveau departemental" (Opendatasoft / Meteo-France),
+acces libre sans jeton. Colonnes reelles : domain_id, color, echeance,
+phenomenon, begin_time, end_time.
 """
 
-import json, os, sys, datetime, gzip, zlib, urllib.parse, urllib.request
+import json, os, sys, re, datetime, gzip, zlib, urllib.parse, urllib.request
 
 DATASET = "weatherref-france-vigilance-meteo-departement"
 BASE = f"https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/{DATASET}/records"
@@ -33,20 +30,24 @@ PHENO_CODES = {
     "5": "Neige-verglas", "6": "Canicule", "7": "Grand froid", "8": "Avalanches",
     "9": "Vagues-submersion",
 }
-PHENO_FIELDS = ["phenomene", "phenomene_libelle", "libelle_phenomene", "nom_phenomene",
-                "phenomene_nom", "risque", "type_risque", "type", "libelle"]
-# Noms de colonne "couleur" connus (essayes en priorite)
-COLOR_FIELDS = ["couleur", "couleur_texte", "vigilance_couleur_texte", "risque_couleur",
-                "coloration", "couleur_niveau", "color", "etat_couleur"]
+
+DEPT_FIELDS  = ["domain_id", "code_dep", "code_departement", "code_insee_departement",
+                "departement", "dep", "insee_dep"]
+COLOR_FIELDS = ["color", "couleur", "couleur_texte", "vigilance_couleur_texte",
+                "risque_couleur", "coloration"]
+ECH_FIELDS   = ["echeance", "echeance_type", "echance"]
+PHENO_FIELDS = ["phenomenon", "phenomene", "phenomene_libelle", "libelle_phenomene",
+                "nom_phenomene", "phenomene_nom"]
+BEGIN_FIELDS = ["begin_time", "date_debut", "debut", "start_time"]
+END_FIELDS   = ["end_time", "date_fin", "fin", "stop_time"]
+
+DEPT_RE = re.compile(r"^(2[ABab]|\d{1,3})$")
 
 
-# ------------------------- HTTP (donnees vigilance) -------------------------
 def get(url):
     req = urllib.request.Request(url, headers={
-        "User-Agent": "vigilance-pacao/1.0",
-        "Accept": "application/json",
-        "Accept-Encoding": "identity",
-    })
+        "User-Agent": "vigilance-pacao/1.0", "Accept": "application/json",
+        "Accept-Encoding": "identity"})
     with urllib.request.urlopen(req, timeout=30) as r:
         raw = r.read()
         enc = (r.headers.get("Content-Encoding") or "").lower()
@@ -67,7 +68,6 @@ def fetch_page(offset, limit=100, where=None):
     return get(BASE + "?" + urllib.parse.urlencode(params))
 
 
-# ------------------------- normalisation -------------------------
 def norm_color(val):
     if val is None:
         return None
@@ -105,26 +105,35 @@ def norm_pheno(val, strict=False):
 
 
 def is_text_color(v):
-    return str(v).strip().lower() in COLORS   # vert/jaune/orange/rouge (jamais un chiffre seul)
+    return str(v).strip().lower() in COLORS
+
+
+def pick_named(keys, candidates):
+    for c in candidates:
+        if c in keys:
+            return c
+    return None
 
 
 def discover_fields(sample):
-    dept_field = color_field = ech_field = pheno_field = None
     keys = set()
     for rec in sample:
         keys |= set(rec.keys())
 
-    # --- departement : intersecte nos codes connus ---
-    for k in keys:
-        vals = [str(rec.get(k)).strip() for rec in sample if rec.get(k) is not None]
-        if vals and sum(1 for v in vals if v.zfill(2) in DEPTS) >= 3:
-            dept_field = k
-            break
+    dept_field = pick_named(keys, DEPT_FIELDS)
+    if dept_field is None:
+        for k in keys:
+            if k.endswith("_id"):
+                continue
+            vals = [str(rec.get(k)).strip() for rec in sample if rec.get(k) is not None]
+            if vals and sum(1 for v in vals if DEPT_RE.match(v)) >= 3:
+                dept_field = k
+                break
 
-    # --- couleur : d'abord les noms connus, puis une colonne 100% texte-couleur ---
-    for cand in COLOR_FIELDS:
-        if cand in keys and any(norm_color(rec.get(cand)) for rec in sample):
-            color_field = cand
+    color_field = None
+    for c in COLOR_FIELDS:
+        if c in keys and any(norm_color(rec.get(c)) for rec in sample):
+            color_field = c
             break
     if color_field is None:
         best, best_ratio = None, 0.0
@@ -133,33 +142,31 @@ def discover_fields(sample):
             if len(vals) < 3:
                 continue
             ratio = sum(1 for v in vals if is_text_color(v)) / len(vals)
-            # une vraie colonne couleur ne contient que vert/jaune/orange/rouge ;
-            # on ignore ainsi toute colonne de chiffres (phenomene code, etc.)
             if ratio >= 0.5 and ratio > best_ratio:
                 best, best_ratio = k, ratio
         color_field = best
 
-    # --- echeance : valeurs J / J1 ---
-    for k in keys:
-        vals = [str(rec.get(k)).strip().lower() for rec in sample if rec.get(k) is not None]
-        if any(v in ("j", "j1", "j+1", "j 1") for v in vals):
-            ech_field = k
-            break
+    ech_field = pick_named(keys, ECH_FIELDS)
+    if ech_field is None:
+        for k in keys:
+            vals = [str(rec.get(k)).strip().lower() for rec in sample if rec.get(k) is not None]
+            if any(v in ("j", "j1", "j+1", "j 1") for v in vals):
+                ech_field = k
+                break
 
-    # --- phenomene : noms connus, sinon detection par valeurs (hors colonnes deja prises) ---
-    for cand in PHENO_FIELDS:
-        if cand in keys and cand != color_field:
-            pheno_field = cand
-            break
+    pheno_field = pick_named(keys, PHENO_FIELDS)
     if pheno_field is None:
         for k in keys:
-            if k in (dept_field, color_field, ech_field):
+            if k in (dept_field, color_field, ech_field) or k.endswith("_id"):
                 continue
             vals = [rec.get(k) for rec in sample if rec.get(k) is not None]
             if vals and sum(1 for v in vals if norm_pheno(v, strict=True)) >= 3:
                 pheno_field = k
                 break
-    return dept_field, color_field, ech_field, pheno_field
+
+    begin_field = pick_named(keys, BEGIN_FIELDS)
+    end_field = pick_named(keys, END_FIELDS)
+    return dept_field, color_field, ech_field, pheno_field, begin_field, end_field
 
 
 def code_of(rec, f):
@@ -167,7 +174,6 @@ def code_of(rec, f):
 
 
 def echeance_key(rec, ech_field):
-    """Retourne 'J' (aujourd'hui), 'J1' (demain) ou None."""
     if not ech_field:
         return "J"
     v = str(rec.get(ech_field, "")).strip().lower()
@@ -178,10 +184,9 @@ def echeance_key(rec, ech_field):
     return None
 
 
-# ------------------------- agregation -------------------------
-def aggregate(recs, dept_f, color_f, ech_f, pheno_f):
+def aggregate(recs, dept_f, color_f, ech_f, pheno_f, begin_f, end_f):
     levels = {"J": {c: 0 for c in DEPTS}, "J1": {c: 0 for c in DEPTS}}
-    pheno = {"J": {c: {} for c in DEPTS}, "J1": {c: {} for c in DEPTS}}
+    info = {"J": {c: {} for c in DEPTS}, "J1": {c: {} for c in DEPTS}}
     for r in recs:
         code = code_of(r, dept_f)
         if code not in DEPTS:
@@ -197,31 +202,48 @@ def aggregate(recs, dept_f, color_f, ech_f, pheno_f):
             levels[key][code] = rank
         if rank >= 1 and pheno_f:
             name = norm_pheno(r.get(pheno_f))
-            if name and rank > pheno[key][code].get(name, -1):
-                pheno[key][code][name] = rank
-    return levels, pheno
+            if not name:
+                continue
+            b = r.get(begin_f) if begin_f else None
+            e = r.get(end_f) if end_f else None
+            cur = info[key][code].get(name)
+            if cur is None:
+                info[key][code][name] = {"rank": rank, "debut": b, "fin": e}
+            else:
+                cur["rank"] = max(cur["rank"], rank)
+                if b and (cur["debut"] is None or b < cur["debut"]):
+                    cur["debut"] = b
+                if e and (cur["fin"] is None or e > cur["fin"]):
+                    cur["fin"] = e
+    return levels, info
 
 
-def phenos_list(d):
-    return [{"phenomene": n, "niveau": RANK_TO_COLOR[rk]}
-            for n, rk in sorted(d.items(), key=lambda kv: -kv[1])]
+def phenos_list(day_code_info):
+    out = []
+    for n, v in sorted(day_code_info.items(), key=lambda kv: -kv[1]["rank"]):
+        out.append({"phenomene": n, "niveau": RANK_TO_COLOR[v["rank"]],
+                    "debut": v.get("debut"), "fin": v.get("fin")})
+    return out
 
 
-def compute_alerts(levels, pheno):
-    """Departements orange/rouge sur J ou J1. Retourne (liste, signature)."""
+def window(day_code_info):
+    items = [v for v in day_code_info.values() if v["rank"] >= 1]
+    debuts = [v["debut"] for v in items if v.get("debut")]
+    fins = [v["fin"] for v in items if v.get("fin")]
+    return (min(debuts) if debuts else None, max(fins) if fins else None)
+
+
+def compute_alerts(levels):
     alerts = []
     for c in DEPTS:
         lj, l1 = levels["J"][c], levels["J1"][c]
         if max(lj, l1) >= 2:
-            alerts.append({"code": c, "nom": DEPTS[c], "j": lj, "j1": l1,
-                           "pj": phenos_list(pheno["J"][c]),
-                           "p1": phenos_list(pheno["J1"][c])})
+            alerts.append({"code": c, "nom": DEPTS[c], "j": lj, "j1": l1})
     alerts.sort(key=lambda a: a["code"])
     sig = ";".join(f"{a['code']}={a['j']}{a['j1']}" for a in alerts)
     return alerts, sig
 
 
-# ------------------------- notification GitHub -------------------------
 def build_issue(alerts, owner):
     maxrank = max(max(a["j"], a["j1"]) for a in alerts)
     word = "ROUGE" if maxrank == 3 else "orange"
@@ -232,11 +254,9 @@ def build_issue(alerts, owner):
     for a in alerts:
         parts = []
         if a["j"] >= 1:
-            ph = ", ".join(p["phenomene"] for p in a["pj"])
-            parts.append(f"aujourd'hui **{RANK_TO_COLOR[a['j']].upper()}**" + (f" ({ph})" if ph else ""))
+            parts.append(f"aujourd'hui **{RANK_TO_COLOR[a['j']].upper()}**")
         if a["j1"] >= 1:
-            ph = ", ".join(p["phenomene"] for p in a["p1"])
-            parts.append(f"demain **{RANK_TO_COLOR[a['j1']].upper()}**" + (f" ({ph})" if ph else ""))
+            parts.append(f"demain **{RANK_TO_COLOR[a['j1']].upper()}**")
         lines.append(f"- **{a['code']} {a['nom']}** — " + " · ".join(parts))
     now = datetime.datetime.now(datetime.timezone.utc).astimezone().strftime("%d/%m/%Y %H:%M")
     lines += ["", f"_Mis a jour le {now}._"]
@@ -252,23 +272,19 @@ def gh_api(method, path, token, payload=None):
                  "User-Agent": "vigilance-pacao/1.0", "X-GitHub-Api-Version": "2022-11-28",
                  "Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=30) as r:
-        body = r.read().decode() or "{}"
-        return json.loads(body)
+        return json.loads(r.read().decode() or "{}")
 
 
 def run_notifications(alerts, sig, state, repo, token):
-    """Cree/cloture une issue selon l'evolution. Retourne le nouvel etat."""
     prev_sig = state.get("signature", "")
     prev_issue = state.get("issue")
     if sig == prev_sig:
         print("[notif] pas de changement d'alerte")
         return state
-
     owner = repo.split("/")[0] if repo else ""
     if not (token and repo):
         print(f"[notif] (local) changement detecte -> {sig or 'aucune alerte'}")
         return {"signature": sig, "issue": prev_issue}
-
     try:
         if alerts:
             title, body = build_issue(alerts, owner)
@@ -281,21 +297,20 @@ def run_notifications(alerts, sig, state, repo, token):
                            {"body": "Situation mise a jour — voir la nouvelle alerte."})
                     gh_api("PATCH", f"/repos/{repo}/issues/{prev_issue}", token, {"state": "closed"})
                 except Exception as e:
-                    print(f"[notif] cloture ancienne issue #{prev_issue} KO ({e})")
+                    print(f"[notif] cloture #{prev_issue} KO ({e})")
             return {"signature": sig, "issue": num}
         else:
             if prev_issue:
                 gh_api("POST", f"/repos/{repo}/issues/{prev_issue}/comments", token,
-                       {"body": f"\u2705 Retour au vert — plus de vigilance orange/rouge sur les 19 departements. cc @{owner}"})
+                       {"body": f"\u2705 Retour au vert — plus de vigilance orange/rouge. cc @{owner}"})
                 gh_api("PATCH", f"/repos/{repo}/issues/{prev_issue}", token, {"state": "closed"})
                 print(f"[notif] retour au vert — issue #{prev_issue} cloturee")
             return {"signature": "", "issue": None}
     except Exception as e:
-        print(f"[notif] ECHEC ({e}) — nouvelle tentative au prochain run")
+        print(f"[notif] ECHEC ({e}) — reessai au prochain run")
         return state
 
 
-# ------------------------- main -------------------------
 def load_state():
     try:
         with open(STATE_FILE, encoding="utf-8") as f:
@@ -308,9 +323,9 @@ def main():
     first = fetch_page(0, limit=100)
     total = first.get("total_count", 0)
     sample = first.get("results", [])
-    dept_f, color_f, ech_f, pheno_f = discover_fields(sample)
-    print(f"[schema] total={total} dept={dept_f!r} color={color_f!r} "
-          f"echeance={ech_f!r} phenomene={pheno_f!r}")
+    dept_f, color_f, ech_f, pheno_f, begin_f, end_f = discover_fields(sample)
+    print(f"[schema] total={total} dept={dept_f!r} color={color_f!r} echeance={ech_f!r} "
+          f"phenomene={pheno_f!r} debut={begin_f!r} fin={end_f!r}")
     if sample:
         ex = {k: sample[0].get(k) for k in list(sample[0].keys())[:12]}
         print("[sample] " + json.dumps(ex, ensure_ascii=False))
@@ -341,15 +356,17 @@ def main():
         recs = [r for r in recs if code_of(r, dept_f) in DEPTS]
         print(f"[fetch] {len(recs)} records apres filtrage local")
 
-    levels, pheno = aggregate(recs, dept_f, color_f, ech_f, pheno_f)
+    levels, info = aggregate(recs, dept_f, color_f, ech_f, pheno_f, begin_f, end_f)
 
     departements = {}
     for c in DEPTS:
+        dj, fj = window(info["J"][c])
+        d1, f1 = window(info["J1"][c])
         departements[c] = {
             "niveau": RANK_TO_COLOR[levels["J"][c]], "nom": DEPTS[c],
-            "phenomenes": phenos_list(pheno["J"][c]),
+            "phenomenes": phenos_list(info["J"][c]), "debut": dj, "fin": fj,
             "demain": {"niveau": RANK_TO_COLOR[levels["J1"][c]],
-                       "phenomenes": phenos_list(pheno["J1"][c])},
+                       "phenomenes": phenos_list(info["J1"][c]), "debut": d1, "fin": f1},
         }
     now = datetime.datetime.now(datetime.timezone.utc).astimezone()
     out = {"date": now.date().isoformat(), "updated": now.isoformat(timespec="minutes"),
@@ -357,7 +374,7 @@ def main():
     with open("vigilance.json", "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
 
-    alerts, sig = compute_alerts(levels, pheno)
+    alerts, sig = compute_alerts(levels)
     n_today = sum(1 for c in DEPTS if levels["J"][c] >= 1)
     print(f"[ok] vigilance.json ecrit — {n_today} dept en vigilance aujourd'hui, "
           f"{len(alerts)} en orange/rouge (J ou J+1)")

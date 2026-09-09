@@ -112,12 +112,15 @@
   .phenos{margin-top:9px; display:flex; flex-direction:column; gap:5px}
   .ph{display:flex; align-items:center; gap:7px; font-size:11px; line-height:1.15; color:var(--ink); font-weight:500}
   .ph .pd{width:8px; height:8px; border-radius:2px; flex:0 0 auto}
+  .win{margin-top:8px; font-family:var(--mono); font-size:10px; letter-spacing:.02em; color:var(--ink); opacity:.85; line-height:1.25}
   .ph-block{background:#101827; border:1px solid var(--line); border-radius:12px; padding:12px 13px; margin-bottom:14px}
   .ph-title{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:9px}
   .ph-row{display:flex; align-items:center; gap:10px; padding:5px 0; font-size:14.5px}
   .ph-row .pd{width:12px; height:12px; border-radius:3px; flex:0 0 auto}
   .ph-row span{flex:1}
+  .ph-row span small{display:block; color:var(--muted); font-size:11.5px; margin-top:1px}
   .ph-row b{font-family:var(--mono); font-size:12px; font-weight:600}
+  .ph-window{margin-top:8px; padding-top:9px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
 
   .tile.vert{background:linear-gradient(180deg,rgba(37,162,68,.14),rgba(37,162,68,.05))}
   .tile.vert .bar{background:var(--vert)} .tile.vert .d{background:var(--vert)} .tile.vert .lvl{color:#7fe39a}
@@ -248,9 +251,10 @@ const LVL_DESC = {
 const LVL_VAR = {vert:"--vert",jaune:"--jaune",orange:"--orange",rouge:"--rouge"};
 const RANK = {vert:0,jaune:1,orange:2,rouge:3};
 
-const S_KEY="vigi_state_v1", CFG_KEY="vigi_cfg_v1", DET_KEY="vigi_details_v1";
+const S_KEY="vigi_state_v1", CFG_KEY="vigi_cfg_v1", DET_KEY="vigi_details_v1", WIN_KEY="vigi_win_v1";
 let state = load(S_KEY) || Object.fromEntries(ALL.map(d=>[d[0],"vert"]));
-let details = load(DET_KEY) || {};   // code -> [{phenomene, niveau}]
+let details = load(DET_KEY) || {};   // code -> [{phenomene, niveau, debut, fin}]
+let windows = load(WIN_KEY) || {};   // code -> {debut, fin}
 let cfg = load(CFG_KEY) || {email:"", url:""};
 let source = "Saisie manuelle";
 
@@ -260,14 +264,35 @@ function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 /* ---------- Rendering ---------- */
 function name(code){return (ALL.find(d=>d[0]===code)||[,""])[1]}
 
+function fmtDT(iso){
+  if(!iso) return "";
+  const d = new Date(iso);
+  if(isNaN(d)) return "";
+  let s = d.toLocaleString("fr-FR",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+  return s.replace(":","h");
+}
+function windowLine(w){
+  if(!w) return "";
+  const a = fmtDT(w.debut), b = fmtDT(w.fin);
+  if(a && b) return "Du "+a+" au "+b;
+  if(b) return "Jusqu'au "+b;
+  if(a) return "À partir du "+a;
+  return "";
+}
+
 function phenoTileHtml(code,lv){
   if(RANK[lv]<2) return "";               // affiche les types a partir d'orange
   const list = details[code]||[];
-  if(!list.length) return "";
-  const rows = list.map(p=>
-    `<span class="ph"><i class="pd" style="background:var(${LVL_VAR[p.niveau]||'--muted'})"></i>${p.phenomene}</span>`
-  ).join("");
-  return `<div class="phenos">${rows}</div>`;
+  let html = "";
+  if(list.length){
+    const rows = list.map(p=>
+      `<span class="ph"><i class="pd" style="background:var(${LVL_VAR[p.niveau]||'--muted'})"></i>${p.phenomene}</span>`
+    ).join("");
+    html += `<div class="phenos">${rows}</div>`;
+  }
+  const wl = windowLine(windows[code]);
+  if(wl) html += `<div class="win">${wl}</div>`;
+  return html;
 }
 
 function render(){
@@ -345,11 +370,16 @@ function openLevelSheet(code){
   const list = details[code]||[];
   let phBlock = "";
   if(list.length){
-    const rows = list.map(p=>
-      `<div class="ph-row"><i class="pd" style="background:var(${LVL_VAR[p.niveau]})"></i>
-        <span>${p.phenomene}</span><b style="color:var(${LVL_VAR[p.niveau]})">${LVL_LABEL[p.niveau]}</b></div>`
-    ).join("");
-    phBlock = `<div class="ph-block"><div class="ph-title">Phénomènes en cours</div>${rows}</div>`;
+    const rows = list.map(p=>{
+      const wl = windowLine({debut:p.debut, fin:p.fin});
+      return `<div class="ph-row"><i class="pd" style="background:var(${LVL_VAR[p.niveau]})"></i>
+        <span>${p.phenomene}${wl?`<small>${wl}</small>`:""}</span>
+        <b style="color:var(${LVL_VAR[p.niveau]})">${LVL_LABEL[p.niveau]}</b></div>`;
+    }).join("");
+    const overall = windowLine(windows[code]);
+    phBlock = `<div class="ph-block"><div class="ph-title">Phénomènes en cours</div>${rows}`
+            + (overall?`<div class="ph-window">🕒 ${overall}</div>`:"")
+            + `</div>`;
   }
   const opts = LEVELS.map(l=>`
     <button class="lvl-opt ${l===cur?'sel':''}" data-l="${l}">
@@ -432,9 +462,10 @@ async function refresh(silent){
       if(src[code]){
         state[code] = (src[code].niveau||src[code]);
         if(src[code].phenomenes) details[code] = src[code].phenomenes;
+        windows[code] = {debut: src[code].debut||null, fin: src[code].fin||null};
       }
     });
-    save(S_KEY,state); save(DET_KEY,details);
+    save(S_KEY,state); save(DET_KEY,details); save(WIN_KEY,windows);
     liveOk = true;
     const t = data.updated ? new Date(data.updated) : new Date();
     source = "Météo-France · mis à jour " + t.toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
