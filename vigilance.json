@@ -1,6 +1,6 @@
 {
   "date": "2026-09-09",
-  "updated": "2026-09-09T15:20+00:00",
+  "updated": "2026-09-09T16:11+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -9,162 +9,226 @@
       "phenomenes": [
         {
           "phenomene": "Orages",
-          "niveau": "jaune"
+          "niveau": "jaune",
+          "debut": "2026-09-09T08:00:00+00:00",
+          "fin": "2026-09-09T10:00:00+00:00"
         }
       ],
+      "debut": "2026-09-09T08:00:00+00:00",
+      "fin": "2026-09-09T10:00:00+00:00",
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "05": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Hautes-Alpes",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Pluie-inondation",
+          "niveau": "jaune",
+          "debut": "2026-09-09T08:00:00+00:00",
+          "fin": "2026-09-09T09:00:00+00:00"
+        },
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-09-09T08:00:00+00:00",
+          "fin": "2026-09-09T10:00:00+00:00"
+        }
+      ],
+      "debut": "2026-09-09T08:00:00+00:00",
+      "fin": "2026-09-09T10:00:00+00:00",
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "06": {
       "niveau": "vert",
       "nom": "Alpes-Maritimes",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "13": {
       "niveau": "vert",
       "nom": "Bouches-du-Rhone",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "83": {
       "niveau": "vert",
       "nom": "Var",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "84": {
       "niveau": "vert",
       "nom": "Vaucluse",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "09": {
       "niveau": "vert",
       "nom": "Ariege",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "11": {
       "niveau": "vert",
       "nom": "Aude",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "12": {
       "niveau": "vert",
       "nom": "Aveyron",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "30": {
       "niveau": "vert",
       "nom": "Gard",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "31": {
       "niveau": "vert",
       "nom": "Haute-Garonne",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "32": {
       "niveau": "vert",
       "nom": "Gers",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "34": {
       "niveau": "vert",
       "nom": "Herault",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "46": {
       "niveau": "vert",
       "nom": "Lot",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "48": {
       "niveau": "vert",
       "nom": "Lozere",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "65": {
       "niveau": "vert",
       "nom": "Hautes-Pyrenees",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "66": {
@@ -173,30 +237,44 @@
       "phenomenes": [
         {
           "phenomene": "Orages",
-          "niveau": "jaune"
+          "niveau": "jaune",
+          "debut": "2026-09-09T12:00:00+00:00",
+          "fin": "2026-09-09T16:00:00+00:00"
         }
       ],
+      "debut": "2026-09-09T12:00:00+00:00",
+      "fin": "2026-09-09T16:00:00+00:00",
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "81": {
       "niveau": "vert",
       "nom": "Tarn",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "82": {
       "niveau": "vert",
       "nom": "Tarn-et-Garonne",
       "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
-        "phenomenes": []
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     }
   }
