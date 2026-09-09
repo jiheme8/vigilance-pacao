@@ -1,12 +1,17 @@
 {
   "date": "2026-09-09",
-  "updated": "2026-09-09T14:20+00:00",
+  "updated": "2026-09-09T15:20+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -17,8 +22,13 @@
       "nom": "Hautes-Alpes",
       "phenomenes": [],
       "demain": {
-        "niveau": "vert",
-        "phenomenes": []
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Orages",
+            "niveau": "jaune"
+          }
+        ]
       }
     },
     "06": {
@@ -26,8 +36,13 @@
       "nom": "Alpes-Maritimes",
       "phenomenes": [],
       "demain": {
-        "niveau": "vert",
-        "phenomenes": []
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Orages",
+            "niveau": "jaune"
+          }
+        ]
       }
     },
     "13": {
@@ -44,8 +59,13 @@
       "nom": "Var",
       "phenomenes": [],
       "demain": {
-        "niveau": "vert",
-        "phenomenes": []
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Orages",
+            "niveau": "jaune"
+          }
+        ]
       }
     },
     "84": {
@@ -148,9 +168,14 @@
       }
     },
     "66": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
