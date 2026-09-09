@@ -1,21 +1,31 @@
 {
   "date": "2026-09-09",
-  "updated": "2026-09-09T10:24+00:00",
+  "updated": "2026-09-09T11:20+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
       }
     },
     "05": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Hautes-Alpes",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Pluie-inondation",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -31,9 +41,14 @@
       }
     },
     "13": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Bouches-du-Rhone",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -85,9 +100,14 @@
       }
     },
     "30": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Gard",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -112,9 +132,14 @@
       }
     },
     "34": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Herault",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -130,9 +155,14 @@
       }
     },
     "48": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Lozere",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -148,9 +178,14 @@
       }
     },
     "66": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [],
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune"
+        }
+      ],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
