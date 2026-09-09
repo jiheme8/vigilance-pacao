@@ -1,35 +1,21 @@
 {
   "date": "2026-09-09",
-  "updated": "2026-09-09T09:21+00:00",
+  "updated": "2026-09-09T10:21+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
       }
     },
     "05": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Hautes-Alpes",
-      "phenomenes": [
-        {
-          "phenomene": "Pluie-inondation",
-          "niveau": "jaune"
-        },
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -63,14 +49,9 @@
       }
     },
     "84": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Vaucluse",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -86,14 +67,9 @@
       }
     },
     "11": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Aude",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -172,14 +148,9 @@
       }
     },
     "66": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
