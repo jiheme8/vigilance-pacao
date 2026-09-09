@@ -1,6 +1,6 @@
 {
   "date": "2026-09-09",
-  "updated": "2026-09-09T08:22+00:00",
+  "updated": "2026-09-09T09:21+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -13,13 +13,8 @@
         }
       ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "05": {
@@ -27,38 +22,11 @@
       "nom": "Hautes-Alpes",
       "phenomenes": [
         {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        },
-        {
           "phenomene": "Pluie-inondation",
           "niveau": "jaune"
-        }
-      ],
-      "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune"
-          },
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
-      }
-    },
-    "06": {
-      "niveau": "jaune",
-      "nom": "Alpes-Maritimes",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
         },
         {
-          "phenomene": "Canicule",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
@@ -67,38 +35,28 @@
         "phenomenes": []
       }
     },
-    "13": {
-      "niveau": "jaune",
-      "nom": "Bouches-du-Rhone",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        },
-        {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        }
-      ],
+    "06": {
+      "niveau": "vert",
+      "nom": "Alpes-Maritimes",
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
+      }
+    },
+    "13": {
+      "niveau": "vert",
+      "nom": "Bouches-du-Rhone",
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "83": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Var",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
@@ -109,7 +67,7 @@
       "nom": "Vaucluse",
       "phenomenes": [
         {
-          "phenomene": "Canicule",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
@@ -119,36 +77,17 @@
       }
     },
     "09": {
-      "niveau": "jaune",
-      "nom": "Ariege",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
-      "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
-      }
-    },
-    "11": {
       "niveau": "vert",
-      "nom": "Aude",
+      "nom": "Ariege",
       "phenomenes": [],
       "demain": {
         "niveau": "vert",
         "phenomenes": []
       }
     },
-    "12": {
+    "11": {
       "niveau": "jaune",
-      "nom": "Aveyron",
+      "nom": "Aude",
       "phenomenes": [
         {
           "phenomene": "Orages",
@@ -156,55 +95,35 @@
         }
       ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
+      }
+    },
+    "12": {
+      "niveau": "vert",
+      "nom": "Aveyron",
+      "phenomenes": [],
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "30": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Gard",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        },
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "31": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Haute-Garonne",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "32": {
@@ -217,26 +136,12 @@
       }
     },
     "34": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Herault",
-      "phenomenes": [
-        {
-          "phenomene": "Canicule",
-          "niveau": "jaune"
-        },
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "46": {
@@ -249,22 +154,12 @@
       }
     },
     "48": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Lozere",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "65": {
@@ -286,32 +181,17 @@
         }
       ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "81": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Tarn",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune"
-        }
-      ],
+      "phenomenes": [],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "82": {
