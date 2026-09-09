@@ -1,6 +1,6 @@
 {
   "date": "2026-09-09",
-  "updated": "2026-09-09T05:19+00:00",
+  "updated": "2026-09-09T06:26+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -8,7 +8,7 @@
       "nom": "Alpes-de-Haute-Provence",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
@@ -23,6 +23,10 @@
       "phenomenes": [
         {
           "phenomene": "Pluie-inondation",
+          "niveau": "jaune"
+        },
+        {
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
@@ -45,7 +49,7 @@
       "nom": "Bouches-du-Rhone",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
@@ -68,18 +72,13 @@
       "nom": "Vaucluse",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "09": {
@@ -96,18 +95,13 @@
       "nom": "Aude",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune"
-          }
-        ]
+        "niveau": "vert",
+        "phenomenes": []
       }
     },
     "12": {
@@ -124,7 +118,7 @@
       "nom": "Gard",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
@@ -156,7 +150,7 @@
       "nom": "Herault",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
@@ -179,7 +173,7 @@
       "nom": "Lozere",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
@@ -202,7 +196,7 @@
       "nom": "Pyrenees-Orientales",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune"
         }
       ],
