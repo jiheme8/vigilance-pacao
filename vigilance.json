@@ -1,6 +1,6 @@
 {
   "date": "2026-09-10",
-  "updated": "2026-09-10T01:19+00:00",
+  "updated": "2026-09-10T02:20+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -240,18 +240,11 @@
       }
     },
     "66": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-09T14:00:00+00:00",
-          "fin": "2026-09-09T16:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-09T14:00:00+00:00",
-      "fin": "2026-09-09T16:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
