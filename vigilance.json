@@ -1,58 +1,11 @@
 {
   "date": "2026-09-10",
-  "updated": "2026-09-10T05:19+00:00",
+  "updated": "2026-09-10T06:26+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "jaune",
-      "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-10T09:00:00+00:00",
-          "fin": "2026-09-10T18:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-10T09:00:00+00:00",
-      "fin": "2026-09-10T18:00:00+00:00",
-      "demain": {
-        "niveau": "vert",
-        "phenomenes": [],
-        "debut": null,
-        "fin": null
-      }
-    },
-    "05": {
-      "niveau": "jaune",
-      "nom": "Hautes-Alpes",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-10T09:00:00+00:00",
-          "fin": "2026-09-10T18:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-10T09:00:00+00:00",
-      "fin": "2026-09-10T18:00:00+00:00",
-      "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune",
-            "debut": "2026-09-10T10:00:00+00:00",
-            "fin": "2026-09-10T18:00:00+00:00"
-          }
-        ],
-        "debut": "2026-09-10T10:00:00+00:00",
-        "fin": "2026-09-10T18:00:00+00:00"
-      }
-    },
-    "06": {
       "niveau": "vert",
-      "nom": "Alpes-Maritimes",
+      "nom": "Alpes-de-Haute-Provence",
       "phenomenes": [],
       "debut": null,
       "fin": null,
@@ -68,6 +21,39 @@
         ],
         "debut": "2026-09-10T10:00:00+00:00",
         "fin": "2026-09-10T18:00:00+00:00"
+      }
+    },
+    "05": {
+      "niveau": "vert",
+      "nom": "Hautes-Alpes",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
+      }
+    },
+    "06": {
+      "niveau": "jaune",
+      "nom": "Alpes-Maritimes",
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-09-10T10:00:00+00:00",
+          "fin": "2026-09-10T18:00:00+00:00"
+        }
+      ],
+      "debut": "2026-09-10T10:00:00+00:00",
+      "fin": "2026-09-10T18:00:00+00:00",
+      "demain": {
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "13": {
@@ -84,30 +70,16 @@
       }
     },
     "83": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Var",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-10T10:00:00+00:00",
-          "fin": "2026-09-10T18:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-10T10:00:00+00:00",
-      "fin": "2026-09-10T18:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune",
-            "debut": "2026-09-10T10:00:00+00:00",
-            "fin": "2026-09-10T18:00:00+00:00"
-          }
-        ],
-        "debut": "2026-09-10T10:00:00+00:00",
-        "fin": "2026-09-10T18:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "84": {
