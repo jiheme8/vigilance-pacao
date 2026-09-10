@@ -1,34 +1,41 @@
 {
   "date": "2026-09-10",
-  "updated": "2026-09-10T04:20+00:00",
+  "updated": "2026-09-10T05:19+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [],
-      "debut": null,
-      "fin": null,
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-09-10T09:00:00+00:00",
+          "fin": "2026-09-10T18:00:00+00:00"
+        }
+      ],
+      "debut": "2026-09-10T09:00:00+00:00",
+      "fin": "2026-09-10T18:00:00+00:00",
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Orages",
-            "niveau": "jaune",
-            "debut": "2026-09-10T10:00:00+00:00",
-            "fin": "2026-09-10T18:00:00+00:00"
-          }
-        ],
-        "debut": "2026-09-10T10:00:00+00:00",
-        "fin": "2026-09-10T18:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "05": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Hautes-Alpes",
-      "phenomenes": [],
-      "debut": null,
-      "fin": null,
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-09-10T09:00:00+00:00",
+          "fin": "2026-09-10T18:00:00+00:00"
+        }
+      ],
+      "debut": "2026-09-10T09:00:00+00:00",
+      "fin": "2026-09-10T18:00:00+00:00",
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
@@ -77,11 +84,18 @@
       }
     },
     "83": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Var",
-      "phenomenes": [],
-      "debut": null,
-      "fin": null,
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-09-10T10:00:00+00:00",
+          "fin": "2026-09-10T18:00:00+00:00"
+        }
+      ],
+      "debut": "2026-09-10T10:00:00+00:00",
+      "fin": "2026-09-10T18:00:00+00:00",
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
