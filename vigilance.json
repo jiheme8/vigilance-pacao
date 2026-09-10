@@ -1,6 +1,6 @@
 {
   "date": "2026-09-10",
-  "updated": "2026-09-10T10:20+00:00",
+  "updated": "2026-09-10T11:20+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -44,18 +44,11 @@
       }
     },
     "06": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Alpes-Maritimes",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-10T10:00:00+00:00",
-          "fin": "2026-09-10T18:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-10T10:00:00+00:00",
-      "fin": "2026-09-10T18:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
