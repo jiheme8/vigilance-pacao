@@ -1,6 +1,6 @@
 {
   "date": "2026-09-12",
-  "updated": "2026-09-12T14:18+00:00",
+  "updated": "2026-09-12T15:17+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -24,11 +24,18 @@
       }
     },
     "05": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Hautes-Alpes",
-      "phenomenes": [],
-      "debut": null,
-      "fin": null,
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-09-10T14:00:00+00:00",
+          "fin": "2026-09-10T18:00:00+00:00"
+        }
+      ],
+      "debut": "2026-09-10T14:00:00+00:00",
+      "fin": "2026-09-10T18:00:00+00:00",
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
