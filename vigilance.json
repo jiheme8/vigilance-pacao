@@ -1,21 +1,14 @@
 {
   "date": "2026-09-14",
-  "updated": "2026-09-14T07:21+00:00",
+  "updated": "2026-09-14T08:22+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-10T14:00:00+00:00",
-          "fin": "2026-09-10T18:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-10T14:00:00+00:00",
-      "fin": "2026-09-10T18:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
