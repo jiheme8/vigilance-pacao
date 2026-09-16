@@ -1,6 +1,6 @@
 {
   "date": "2026-09-16",
-  "updated": "2026-09-16T13:21+00:00",
+  "updated": "2026-09-16T14:21+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -141,18 +141,11 @@
       }
     },
     "31": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Haute-Garonne",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-16T12:00:00+00:00",
-          "fin": "2026-09-16T16:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-16T12:00:00+00:00",
-      "fin": "2026-09-16T16:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
