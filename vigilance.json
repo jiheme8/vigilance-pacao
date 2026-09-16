@@ -1,6 +1,6 @@
 {
   "date": "2026-09-16",
-  "updated": "2026-09-16T16:20+00:00",
+  "updated": "2026-09-16T17:17+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -82,18 +82,11 @@
       }
     },
     "09": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Ariege",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-16T14:00:00+00:00",
-          "fin": "2026-09-16T18:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-16T14:00:00+00:00",
-      "fin": "2026-09-16T18:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
