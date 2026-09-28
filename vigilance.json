@@ -1,6 +1,6 @@
 {
   "date": "2026-09-28",
-  "updated": "2026-09-28T11:21+00:00",
+  "updated": "2026-09-28T12:27+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -182,12 +182,6 @@
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune",
-            "debut": "2026-09-29T15:00:00+00:00",
-            "fin": "2026-09-29T22:00:00+00:00"
-          },
           {
             "phenomene": "Orages",
             "niveau": "jaune",
