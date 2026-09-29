@@ -1,6 +1,6 @@
 {
   "date": "2026-09-29",
-  "updated": "2026-09-29T09:23+00:00",
+  "updated": "2026-09-29T10:22+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -51,12 +51,6 @@
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune",
-            "debut": "2026-09-30T10:00:00+00:00",
-            "fin": "2026-09-30T22:00:00+00:00"
-          },
           {
             "phenomene": "Orages",
             "niveau": "jaune",
@@ -192,7 +186,7 @@
             "phenomene": "Pluie-inondation",
             "niveau": "orange",
             "debut": "2026-09-29T22:00:00+00:00",
-            "fin": "2026-09-30T22:00:00+00:00"
+            "fin": "2026-09-30T16:00:00+00:00"
           }
         ],
         "debut": "2026-09-29T22:00:00+00:00",
@@ -234,9 +228,15 @@
           "niveau": "jaune",
           "debut": "2026-09-29T16:00:00+00:00",
           "fin": "2026-09-29T22:00:00+00:00"
+        },
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-09-29T12:00:00+00:00",
+          "fin": "2026-09-29T22:00:00+00:00"
         }
       ],
-      "debut": "2026-09-29T16:00:00+00:00",
+      "debut": "2026-09-29T12:00:00+00:00",
       "fin": "2026-09-29T22:00:00+00:00",
       "demain": {
         "niveau": "orange",
@@ -276,15 +276,15 @@
       "nom": "Lozere",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
-          "niveau": "jaune",
-          "debut": "2026-09-29T16:00:00+00:00",
-          "fin": "2026-09-29T22:00:00+00:00"
-        },
-        {
           "phenomene": "Orages",
           "niveau": "jaune",
           "debut": "2026-09-29T17:00:00+00:00",
+          "fin": "2026-09-29T22:00:00+00:00"
+        },
+        {
+          "phenomene": "Pluie-inondation",
+          "niveau": "jaune",
+          "debut": "2026-09-29T16:00:00+00:00",
           "fin": "2026-09-29T22:00:00+00:00"
         }
       ],
@@ -301,8 +301,8 @@
           },
           {
             "phenomene": "Pluie-inondation",
-            "niveau": "orange",
-            "debut": "2026-09-29T22:00:00+00:00",
+            "niveau": "jaune",
+            "debut": "2026-09-30T12:00:00+00:00",
             "fin": "2026-09-30T22:00:00+00:00"
           }
         ],
@@ -324,18 +324,11 @@
       }
     },
     "66": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-09-29T10:00:00+00:00",
-          "fin": "2026-09-29T22:00:00+00:00"
-        }
-      ],
-      "debut": "2026-09-29T10:00:00+00:00",
-      "fin": "2026-09-29T22:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
