@@ -1,6 +1,6 @@
 {
-  "date": "2026-09-30",
-  "updated": "2026-09-30T23:19+00:00",
+  "date": "2026-10-01",
+  "updated": "2026-10-01T00:31+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -49,12 +49,6 @@
         {
           "phenomene": "Pluie-inondation",
           "niveau": "orange",
-          "debut": "2026-09-30T20:00:00+00:00",
-          "fin": "2026-09-30T22:00:00+00:00"
-        },
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
           "debut": "2026-09-30T20:00:00+00:00",
           "fin": "2026-09-30T22:00:00+00:00"
         }
@@ -112,13 +106,13 @@
       "nom": "Vaucluse",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune",
           "debut": "2026-09-30T20:00:00+00:00",
           "fin": "2026-09-30T22:00:00+00:00"
         },
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune",
           "debut": "2026-09-30T20:00:00+00:00",
           "fin": "2026-09-30T22:00:00+00:00"
