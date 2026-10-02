@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "updated": "2026-10-02T06:26+00:00",
+  "updated": "2026-10-02T07:23+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -125,13 +125,13 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune",
             "debut": "2026-10-03T01:00:00+00:00",
             "fin": "2026-10-03T18:00:00+00:00"
           },
           {
-            "phenomene": "Pluie-inondation",
+            "phenomene": "Orages",
             "niveau": "jaune",
             "debut": "2026-10-03T01:00:00+00:00",
             "fin": "2026-10-03T18:00:00+00:00"
@@ -155,23 +155,29 @@
       }
     },
     "30": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Gard",
-      "phenomenes": [
-        {
-          "phenomene": "Pluie-inondation",
-          "niveau": "jaune",
-          "debut": "2026-10-01T08:00:00+00:00",
-          "fin": "2026-10-01T10:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-01T08:00:00+00:00",
-      "fin": "2026-10-01T10:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "vert",
-        "phenomenes": [],
-        "debut": null,
-        "fin": null
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Pluie-inondation",
+            "niveau": "jaune",
+            "debut": "2026-10-03T01:00:00+00:00",
+            "fin": "2026-10-03T18:00:00+00:00"
+          },
+          {
+            "phenomene": "Orages",
+            "niveau": "jaune",
+            "debut": "2026-10-03T01:00:00+00:00",
+            "fin": "2026-10-03T18:00:00+00:00"
+          }
+        ],
+        "debut": "2026-10-03T01:00:00+00:00",
+        "fin": "2026-10-03T18:00:00+00:00"
       }
     },
     "31": {
@@ -201,23 +207,29 @@
       }
     },
     "34": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Herault",
-      "phenomenes": [
-        {
-          "phenomene": "Pluie-inondation",
-          "niveau": "jaune",
-          "debut": "2026-10-01T08:00:00+00:00",
-          "fin": "2026-10-01T10:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-01T08:00:00+00:00",
-      "fin": "2026-10-01T10:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "vert",
-        "phenomenes": [],
-        "debut": null,
-        "fin": null
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Orages",
+            "niveau": "jaune",
+            "debut": "2026-10-03T01:00:00+00:00",
+            "fin": "2026-10-03T18:00:00+00:00"
+          },
+          {
+            "phenomene": "Pluie-inondation",
+            "niveau": "jaune",
+            "debut": "2026-10-03T01:00:00+00:00",
+            "fin": "2026-10-03T18:00:00+00:00"
+          }
+        ],
+        "debut": "2026-10-03T01:00:00+00:00",
+        "fin": "2026-10-03T18:00:00+00:00"
       }
     },
     "46": {
@@ -260,23 +272,29 @@
       }
     },
     "66": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-10-01T12:00:00+00:00",
-          "fin": "2026-10-01T17:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-01T12:00:00+00:00",
-      "fin": "2026-10-01T17:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "vert",
-        "phenomenes": [],
-        "debut": null,
-        "fin": null
+        "niveau": "jaune",
+        "phenomenes": [
+          {
+            "phenomene": "Orages",
+            "niveau": "jaune",
+            "debut": "2026-10-03T01:00:00+00:00",
+            "fin": "2026-10-03T18:00:00+00:00"
+          },
+          {
+            "phenomene": "Pluie-inondation",
+            "niveau": "jaune",
+            "debut": "2026-10-03T01:00:00+00:00",
+            "fin": "2026-10-03T18:00:00+00:00"
+          }
+        ],
+        "debut": "2026-10-03T01:00:00+00:00",
+        "fin": "2026-10-03T18:00:00+00:00"
       }
     },
     "81": {
