@@ -1,6 +1,6 @@
 {
   "date": "2026-10-03",
-  "updated": "2026-10-03T10:19+00:00",
+  "updated": "2026-10-03T13:38+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -47,19 +47,13 @@
       "nom": "Bouches-du-Rhone",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
-          "niveau": "jaune",
-          "debut": "2026-10-03T07:00:00+00:00",
-          "fin": "2026-10-03T14:00:00+00:00"
-        },
-        {
           "phenomene": "Orages",
           "niveau": "jaune",
-          "debut": "2026-10-03T07:00:00+00:00",
+          "debut": "2026-10-03T10:00:00+00:00",
           "fin": "2026-10-03T14:00:00+00:00"
         }
       ],
-      "debut": "2026-10-03T07:00:00+00:00",
+      "debut": "2026-10-03T10:00:00+00:00",
       "fin": "2026-10-03T14:00:00+00:00",
       "demain": {
         "niveau": "vert",
@@ -158,19 +152,19 @@
       "nom": "Gard",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune",
-          "debut": "2026-10-03T07:00:00+00:00",
+          "debut": "2026-10-03T10:00:00+00:00",
           "fin": "2026-10-03T18:00:00+00:00"
         },
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune",
-          "debut": "2026-10-03T07:00:00+00:00",
+          "debut": "2026-10-03T10:00:00+00:00",
           "fin": "2026-10-03T18:00:00+00:00"
         }
       ],
-      "debut": "2026-10-03T07:00:00+00:00",
+      "debut": "2026-10-03T10:00:00+00:00",
       "fin": "2026-10-03T18:00:00+00:00",
       "demain": {
         "niveau": "vert",
@@ -219,17 +213,17 @@
         {
           "phenomene": "Pluie-inondation",
           "niveau": "orange",
-          "debut": "2026-10-03T07:00:00+00:00",
+          "debut": "2026-10-03T10:00:00+00:00",
           "fin": "2026-10-03T18:00:00+00:00"
         },
         {
           "phenomene": "Orages",
           "niveau": "jaune",
-          "debut": "2026-10-03T07:00:00+00:00",
+          "debut": "2026-10-03T10:00:00+00:00",
           "fin": "2026-10-03T18:00:00+00:00"
         }
       ],
-      "debut": "2026-10-03T07:00:00+00:00",
+      "debut": "2026-10-03T10:00:00+00:00",
       "fin": "2026-10-03T18:00:00+00:00",
       "demain": {
         "niveau": "vert",
@@ -252,18 +246,11 @@
       }
     },
     "48": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Lozere",
-      "phenomenes": [
-        {
-          "phenomene": "Pluie-inondation",
-          "niveau": "jaune",
-          "debut": "2026-10-03T07:00:00+00:00",
-          "fin": "2026-10-03T18:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-03T07:00:00+00:00",
-      "fin": "2026-10-03T18:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
@@ -298,17 +285,17 @@
         {
           "phenomene": "Pluie-inondation",
           "niveau": "jaune",
-          "debut": "2026-10-03T07:00:00+00:00",
+          "debut": "2026-10-03T10:00:00+00:00",
           "fin": "2026-10-03T18:00:00+00:00"
         },
         {
           "phenomene": "Orages",
           "niveau": "jaune",
-          "debut": "2026-10-03T07:00:00+00:00",
+          "debut": "2026-10-03T10:00:00+00:00",
           "fin": "2026-10-03T18:00:00+00:00"
         }
       ],
-      "debut": "2026-10-03T07:00:00+00:00",
+      "debut": "2026-10-03T10:00:00+00:00",
       "fin": "2026-10-03T18:00:00+00:00",
       "demain": {
         "niveau": "jaune",
@@ -317,11 +304,17 @@
             "phenomene": "Orages",
             "niveau": "jaune",
             "debut": "2026-10-04T02:00:00+00:00",
-            "fin": "2026-10-04T12:00:00+00:00"
+            "fin": "2026-10-04T16:00:00+00:00"
+          },
+          {
+            "phenomene": "Pluie-inondation",
+            "niveau": "jaune",
+            "debut": "2026-10-04T02:00:00+00:00",
+            "fin": "2026-10-04T16:00:00+00:00"
           }
         ],
         "debut": "2026-10-04T02:00:00+00:00",
-        "fin": "2026-10-04T12:00:00+00:00"
+        "fin": "2026-10-04T16:00:00+00:00"
       }
     },
     "81": {
