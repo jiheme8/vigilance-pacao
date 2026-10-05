@@ -1,6 +1,6 @@
 {
   "date": "2026-10-05",
-  "updated": "2026-10-05T09:25+00:00",
+  "updated": "2026-10-05T10:24+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -177,13 +177,13 @@
       "nom": "Herault",
       "phenomenes": [
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune",
           "debut": "2026-10-05T04:00:00+00:00",
           "fin": "2026-10-05T10:00:00+00:00"
         },
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune",
           "debut": "2026-10-05T04:00:00+00:00",
           "fin": "2026-10-05T10:00:00+00:00"
