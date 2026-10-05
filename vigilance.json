@@ -1,6 +1,6 @@
 {
   "date": "2026-10-05",
-  "updated": "2026-10-05T03:23+00:00",
+  "updated": "2026-10-05T04:23+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -113,16 +113,16 @@
       "nom": "Aude",
       "phenomenes": [
         {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-10-04T14:00:00+00:00",
-          "fin": "2026-10-04T18:00:00+00:00"
-        },
-        {
           "phenomene": "Pluie-inondation",
           "niveau": "jaune",
           "debut": "2026-10-04T14:00:00+00:00",
           "fin": "2026-10-04T22:00:00+00:00"
+        },
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-10-04T14:00:00+00:00",
+          "fin": "2026-10-04T18:00:00+00:00"
         }
       ],
       "debut": "2026-10-04T14:00:00+00:00",
