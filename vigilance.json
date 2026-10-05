@@ -1,6 +1,6 @@
 {
   "date": "2026-10-05",
-  "updated": "2026-10-05T01:21+00:00",
+  "updated": "2026-10-05T02:22+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -43,18 +43,11 @@
       }
     },
     "13": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Bouches-du-Rhone",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-10-04T17:00:00+00:00",
-          "fin": "2026-10-04T22:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-04T17:00:00+00:00",
-      "fin": "2026-10-04T22:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
@@ -303,13 +296,13 @@
       "nom": "Pyrenees-Orientales",
       "phenomenes": [
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune",
           "debut": "2026-10-04T14:00:00+00:00",
           "fin": "2026-10-04T16:00:00+00:00"
         },
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "jaune",
           "debut": "2026-10-04T14:00:00+00:00",
           "fin": "2026-10-04T16:00:00+00:00"
