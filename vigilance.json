@@ -1,14 +1,21 @@
 {
   "date": "2026-10-06",
-  "updated": "2026-10-06T11:21+00:00",
+  "updated": "2026-10-06T12:27+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [],
-      "debut": null,
-      "fin": null,
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-10-06T12:00:00+00:00",
+          "fin": "2026-10-06T18:00:00+00:00"
+        }
+      ],
+      "debut": "2026-10-06T12:00:00+00:00",
+      "fin": "2026-10-06T18:00:00+00:00",
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
@@ -17,11 +24,18 @@
       }
     },
     "05": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Hautes-Alpes",
-      "phenomenes": [],
-      "debut": null,
-      "fin": null,
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-10-06T12:00:00+00:00",
+          "fin": "2026-10-06T18:00:00+00:00"
+        }
+      ],
+      "debut": "2026-10-06T12:00:00+00:00",
+      "fin": "2026-10-06T18:00:00+00:00",
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
@@ -30,11 +44,18 @@
       }
     },
     "06": {
-      "niveau": "vert",
+      "niveau": "jaune",
       "nom": "Alpes-Maritimes",
-      "phenomenes": [],
-      "debut": null,
-      "fin": null,
+      "phenomenes": [
+        {
+          "phenomene": "Orages",
+          "niveau": "jaune",
+          "debut": "2026-10-06T12:00:00+00:00",
+          "fin": "2026-10-06T18:00:00+00:00"
+        }
+      ],
+      "debut": "2026-10-06T12:00:00+00:00",
+      "fin": "2026-10-06T18:00:00+00:00",
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
@@ -59,13 +80,13 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
+            "phenomene": "Pluie-inondation",
             "niveau": "jaune",
             "debut": "2026-10-07T00:00:00+00:00",
             "fin": "2026-10-07T22:00:00+00:00"
           },
           {
-            "phenomene": "Pluie-inondation",
+            "phenomene": "Orages",
             "niveau": "jaune",
             "debut": "2026-10-07T00:00:00+00:00",
             "fin": "2026-10-07T22:00:00+00:00"
@@ -108,26 +129,26 @@
         {
           "phenomene": "Orages",
           "niveau": "jaune",
-          "debut": "2026-10-06T14:00:00+00:00",
+          "debut": "2026-10-06T13:00:00+00:00",
           "fin": "2026-10-06T22:00:00+00:00"
         }
       ],
-      "debut": "2026-10-06T14:00:00+00:00",
+      "debut": "2026-10-06T13:00:00+00:00",
       "fin": "2026-10-06T22:00:00+00:00",
       "demain": {
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune",
-            "debut": "2026-10-07T04:00:00+00:00",
-            "fin": "2026-10-07T10:00:00+00:00"
-          },
-          {
             "phenomene": "Orages",
             "niveau": "jaune",
             "debut": "2026-10-07T02:00:00+00:00",
             "fin": "2026-10-07T11:00:00+00:00"
+          },
+          {
+            "phenomene": "Pluie-inondation",
+            "niveau": "jaune",
+            "debut": "2026-10-07T04:00:00+00:00",
+            "fin": "2026-10-07T10:00:00+00:00"
           }
         ],
         "debut": "2026-10-07T02:00:00+00:00",
@@ -228,7 +249,7 @@
         {
           "phenomene": "Pluie-inondation",
           "niveau": "orange",
-          "debut": "2026-10-06T20:00:00+00:00",
+          "debut": "2026-10-06T10:00:00+00:00",
           "fin": "2026-10-06T22:00:00+00:00"
         }
       ],
@@ -288,11 +309,11 @@
         {
           "phenomene": "Orages",
           "niveau": "jaune",
-          "debut": "2026-10-06T16:00:00+00:00",
+          "debut": "2026-10-06T14:00:00+00:00",
           "fin": "2026-10-06T22:00:00+00:00"
         }
       ],
-      "debut": "2026-10-06T16:00:00+00:00",
+      "debut": "2026-10-06T14:00:00+00:00",
       "fin": "2026-10-06T22:00:00+00:00",
       "demain": {
         "niveau": "jaune",
