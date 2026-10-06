@@ -1,6 +1,6 @@
 {
   "date": "2026-10-06",
-  "updated": "2026-10-06T09:23+00:00",
+  "updated": "2026-10-06T10:22+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -106,16 +106,16 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Orages",
-            "niveau": "jaune",
-            "debut": "2026-10-07T05:00:00+00:00",
-            "fin": "2026-10-07T15:00:00+00:00"
-          },
-          {
             "phenomene": "Pluie-inondation",
             "niveau": "jaune",
             "debut": "2026-10-07T04:00:00+00:00",
             "fin": "2026-10-07T22:00:00+00:00"
+          },
+          {
+            "phenomene": "Orages",
+            "niveau": "jaune",
+            "debut": "2026-10-07T05:00:00+00:00",
+            "fin": "2026-10-07T15:00:00+00:00"
           }
         ],
         "debut": "2026-10-07T04:00:00+00:00",
@@ -241,15 +241,15 @@
       "nom": "Gard",
       "phenomenes": [
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Orages",
           "niveau": "orange",
           "debut": "2026-10-06T10:00:00+00:00",
           "fin": "2026-10-06T22:00:00+00:00"
         },
         {
-          "phenomene": "Orages",
+          "phenomene": "Pluie-inondation",
           "niveau": "orange",
-          "debut": "2026-10-06T13:00:00+00:00",
+          "debut": "2026-10-06T10:00:00+00:00",
           "fin": "2026-10-06T22:00:00+00:00"
         }
       ],
@@ -262,17 +262,17 @@
             "phenomene": "Orages",
             "niveau": "orange",
             "debut": "2026-10-06T22:00:00+00:00",
-            "fin": "2026-10-07T09:00:00+00:00"
+            "fin": "2026-10-07T22:00:00+00:00"
           },
           {
             "phenomene": "Pluie-inondation",
-            "niveau": "jaune",
-            "debut": "2026-10-07T08:00:00+00:00",
+            "niveau": "orange",
+            "debut": "2026-10-06T22:00:00+00:00",
             "fin": "2026-10-07T09:00:00+00:00"
           }
         ],
         "debut": "2026-10-06T22:00:00+00:00",
-        "fin": "2026-10-07T09:00:00+00:00"
+        "fin": "2026-10-07T22:00:00+00:00"
       }
     },
     "31": {
@@ -336,32 +336,32 @@
         {
           "phenomene": "Orages",
           "niveau": "orange",
-          "debut": "2026-10-06T13:00:00+00:00",
+          "debut": "2026-10-06T10:00:00+00:00",
           "fin": "2026-10-06T22:00:00+00:00"
         },
         {
           "phenomene": "Pluie-inondation",
           "niveau": "orange",
-          "debut": "2026-10-06T18:00:00+00:00",
+          "debut": "2026-10-06T10:00:00+00:00",
           "fin": "2026-10-06T22:00:00+00:00"
         }
       ],
-      "debut": "2026-10-06T13:00:00+00:00",
+      "debut": "2026-10-06T10:00:00+00:00",
       "fin": "2026-10-06T22:00:00+00:00",
       "demain": {
         "niveau": "orange",
         "phenomenes": [
           {
-            "phenomene": "Pluie-inondation",
-            "niveau": "orange",
-            "debut": "2026-10-06T22:00:00+00:00",
-            "fin": "2026-10-07T07:00:00+00:00"
-          },
-          {
             "phenomene": "Orages",
             "niveau": "orange",
             "debut": "2026-10-06T22:00:00+00:00",
             "fin": "2026-10-07T22:00:00+00:00"
+          },
+          {
+            "phenomene": "Pluie-inondation",
+            "niveau": "orange",
+            "debut": "2026-10-06T22:00:00+00:00",
+            "fin": "2026-10-07T07:00:00+00:00"
           }
         ],
         "debut": "2026-10-06T22:00:00+00:00",
