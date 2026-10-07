@@ -1,6 +1,6 @@
 {
   "date": "2026-10-07",
-  "updated": "2026-10-07T10:23+00:00",
+  "updated": "2026-10-07T11:22+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -60,15 +60,15 @@
       "nom": "Alpes-Maritimes",
       "phenomenes": [
         {
-          "phenomene": "Vent violent",
-          "niveau": "jaune",
-          "debut": "2026-10-07T19:00:00+00:00",
-          "fin": "2026-10-07T22:00:00+00:00"
-        },
-        {
           "phenomene": "Orages",
           "niveau": "jaune",
           "debut": "2026-10-07T08:00:00+00:00",
+          "fin": "2026-10-07T22:00:00+00:00"
+        },
+        {
+          "phenomene": "Vent violent",
+          "niveau": "jaune",
+          "debut": "2026-10-07T19:00:00+00:00",
           "fin": "2026-10-07T22:00:00+00:00"
         },
         {
@@ -105,15 +105,15 @@
       "nom": "Bouches-du-Rhone",
       "phenomenes": [
         {
-          "phenomene": "Vent violent",
-          "niveau": "jaune",
-          "debut": "2026-10-07T18:00:00+00:00",
-          "fin": "2026-10-07T22:00:00+00:00"
-        },
-        {
           "phenomene": "Orages",
           "niveau": "jaune",
           "debut": "2026-10-07T08:00:00+00:00",
+          "fin": "2026-10-07T22:00:00+00:00"
+        },
+        {
+          "phenomene": "Vent violent",
+          "niveau": "jaune",
+          "debut": "2026-10-07T18:00:00+00:00",
           "fin": "2026-10-07T22:00:00+00:00"
         },
         {
