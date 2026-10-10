@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-09",
-  "updated": "2026-10-09T20:47+00:00",
+  "date": "2026-10-10",
+  "updated": "2026-10-10T00:43+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -30,18 +30,11 @@
       }
     },
     "06": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Alpes-Maritimes",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-10-09T04:00:00+00:00",
-          "fin": "2026-10-09T08:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-09T04:00:00+00:00",
-      "fin": "2026-10-09T08:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
@@ -50,18 +43,11 @@
       }
     },
     "13": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Bouches-du-Rhone",
-      "phenomenes": [
-        {
-          "phenomene": "Vent violent",
-          "niveau": "jaune",
-          "debut": "2026-10-09T04:00:00+00:00",
-          "fin": "2026-10-09T06:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-09T04:00:00+00:00",
-      "fin": "2026-10-09T06:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
@@ -70,18 +56,11 @@
       }
     },
     "83": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Var",
-      "phenomenes": [
-        {
-          "phenomene": "Orages",
-          "niveau": "jaune",
-          "debut": "2026-10-09T04:00:00+00:00",
-          "fin": "2026-10-09T08:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-09T04:00:00+00:00",
-      "fin": "2026-10-09T08:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
@@ -90,18 +69,11 @@
       }
     },
     "84": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Vaucluse",
-      "phenomenes": [
-        {
-          "phenomene": "Vent violent",
-          "niveau": "jaune",
-          "debut": "2026-10-09T04:00:00+00:00",
-          "fin": "2026-10-09T06:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-09T04:00:00+00:00",
-      "fin": "2026-10-09T06:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
@@ -240,18 +212,11 @@
       }
     },
     "66": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Pyrenees-Orientales",
-      "phenomenes": [
-        {
-          "phenomene": "Vent violent",
-          "niveau": "jaune",
-          "debut": "2026-10-09T04:00:00+00:00",
-          "fin": "2026-10-09T06:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-09T04:00:00+00:00",
-      "fin": "2026-10-09T06:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
