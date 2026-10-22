@@ -1,33 +1,19 @@
 {
-  "date": "2026-10-21",
-  "updated": "2026-10-21T23:14+00:00",
+  "date": "2026-10-22",
+  "updated": "2026-10-22T04:31+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Alpes-de-Haute-Provence",
-      "phenomenes": [
-        {
-          "phenomene": "Vent violent",
-          "niveau": "jaune",
-          "debut": "2026-10-21T16:00:00+00:00",
-          "fin": "2026-10-21T22:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-21T16:00:00+00:00",
-      "fin": "2026-10-21T22:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Vent violent",
-            "niveau": "jaune",
-            "debut": "2026-10-21T22:00:00+00:00",
-            "fin": "2026-10-22T03:00:00+00:00"
-          }
-        ],
-        "debut": "2026-10-21T22:00:00+00:00",
-        "fin": "2026-10-22T03:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "05": {
@@ -44,30 +30,16 @@
       }
     },
     "06": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Alpes-Maritimes",
-      "phenomenes": [
-        {
-          "phenomene": "Vent violent",
-          "niveau": "jaune",
-          "debut": "2026-10-21T16:00:00+00:00",
-          "fin": "2026-10-21T22:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-21T16:00:00+00:00",
-      "fin": "2026-10-21T22:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Vent violent",
-            "niveau": "jaune",
-            "debut": "2026-10-21T22:00:00+00:00",
-            "fin": "2026-10-22T03:00:00+00:00"
-          }
-        ],
-        "debut": "2026-10-21T22:00:00+00:00",
-        "fin": "2026-10-22T03:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "13": {
@@ -84,30 +56,16 @@
       }
     },
     "83": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Var",
-      "phenomenes": [
-        {
-          "phenomene": "Vent violent",
-          "niveau": "jaune",
-          "debut": "2026-10-21T16:00:00+00:00",
-          "fin": "2026-10-21T22:00:00+00:00"
-        }
-      ],
-      "debut": "2026-10-21T16:00:00+00:00",
-      "fin": "2026-10-21T22:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Vent violent",
-            "niveau": "jaune",
-            "debut": "2026-10-21T22:00:00+00:00",
-            "fin": "2026-10-22T03:00:00+00:00"
-          }
-        ],
-        "debut": "2026-10-21T22:00:00+00:00",
-        "fin": "2026-10-22T03:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "84": {
