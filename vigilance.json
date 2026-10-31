@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "updated": "2026-10-31T05:24+00:00",
+  "updated": "2026-10-31T12:12+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -10,17 +10,10 @@
       "debut": null,
       "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Avalanches",
-            "niveau": "jaune",
-            "debut": "2026-10-31T23:00:00+00:00",
-            "fin": "2026-11-01T23:00:00+00:00"
-          }
-        ],
-        "debut": "2026-10-31T23:00:00+00:00",
-        "fin": "2026-11-01T23:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "05": {
@@ -30,17 +23,10 @@
       "debut": null,
       "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Avalanches",
-            "niveau": "jaune",
-            "debut": "2026-10-31T23:00:00+00:00",
-            "fin": "2026-11-01T23:00:00+00:00"
-          }
-        ],
-        "debut": "2026-10-31T23:00:00+00:00",
-        "fin": "2026-11-01T23:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "06": {
@@ -50,17 +36,10 @@
       "debut": null,
       "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Avalanches",
-            "niveau": "jaune",
-            "debut": "2026-10-31T23:00:00+00:00",
-            "fin": "2026-11-01T23:00:00+00:00"
-          }
-        ],
-        "debut": "2026-10-31T23:00:00+00:00",
-        "fin": "2026-11-01T23:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "13": {
