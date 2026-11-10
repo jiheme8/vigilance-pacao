@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "updated": "2026-11-10T09:38+00:00",
+  "updated": "2026-11-10T17:41+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -17,18 +17,11 @@
       }
     },
     "05": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Hautes-Alpes",
-      "phenomenes": [
-        {
-          "phenomene": "Avalanches",
-          "niveau": "jaune",
-          "debut": "2026-11-10T09:00:00+00:00",
-          "fin": "2026-11-10T23:00:00+00:00"
-        }
-      ],
-      "debut": "2026-11-10T09:00:00+00:00",
-      "fin": "2026-11-10T23:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
         "niveau": "vert",
         "phenomenes": [],
