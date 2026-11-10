@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "updated": "2026-11-10T01:26+00:00",
+  "updated": "2026-11-10T09:38+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -23,24 +23,17 @@
         {
           "phenomene": "Avalanches",
           "niveau": "jaune",
-          "debut": "2026-11-09T15:00:00+00:00",
-          "fin": "2026-11-09T23:00:00+00:00"
+          "debut": "2026-11-10T09:00:00+00:00",
+          "fin": "2026-11-10T23:00:00+00:00"
         }
       ],
-      "debut": "2026-11-09T15:00:00+00:00",
-      "fin": "2026-11-09T23:00:00+00:00",
+      "debut": "2026-11-10T09:00:00+00:00",
+      "fin": "2026-11-10T23:00:00+00:00",
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Avalanches",
-            "niveau": "jaune",
-            "debut": "2026-11-09T23:00:00+00:00",
-            "fin": "2026-11-10T23:00:00+00:00"
-          }
-        ],
-        "debut": "2026-11-09T23:00:00+00:00",
-        "fin": "2026-11-10T23:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "06": {
@@ -135,30 +128,16 @@
       }
     },
     "30": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Gard",
-      "phenomenes": [
-        {
-          "phenomene": "Pluie-inondation",
-          "niveau": "jaune",
-          "debut": "2026-11-09T15:00:00+00:00",
-          "fin": "2026-11-09T23:00:00+00:00"
-        }
-      ],
-      "debut": "2026-11-09T15:00:00+00:00",
-      "fin": "2026-11-09T23:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune",
-            "debut": "2026-11-09T23:00:00+00:00",
-            "fin": "2026-11-10T08:00:00+00:00"
-          }
-        ],
-        "debut": "2026-11-09T23:00:00+00:00",
-        "fin": "2026-11-10T08:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "31": {
@@ -188,30 +167,16 @@
       }
     },
     "34": {
-      "niveau": "jaune",
+      "niveau": "vert",
       "nom": "Herault",
-      "phenomenes": [
-        {
-          "phenomene": "Pluie-inondation",
-          "niveau": "jaune",
-          "debut": "2026-11-09T15:00:00+00:00",
-          "fin": "2026-11-09T23:00:00+00:00"
-        }
-      ],
-      "debut": "2026-11-09T15:00:00+00:00",
-      "fin": "2026-11-09T23:00:00+00:00",
+      "phenomenes": [],
+      "debut": null,
+      "fin": null,
       "demain": {
-        "niveau": "jaune",
-        "phenomenes": [
-          {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune",
-            "debut": "2026-11-09T23:00:00+00:00",
-            "fin": "2026-11-10T08:00:00+00:00"
-          }
-        ],
-        "debut": "2026-11-09T23:00:00+00:00",
-        "fin": "2026-11-10T08:00:00+00:00"
+        "niveau": "vert",
+        "phenomenes": [],
+        "debut": null,
+        "fin": null
       }
     },
     "46": {
