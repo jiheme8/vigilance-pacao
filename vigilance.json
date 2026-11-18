@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-17",
-  "updated": "2026-11-17T22:11+00:00",
+  "date": "2026-11-18",
+  "updated": "2026-11-18T04:09+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -8,13 +8,13 @@
       "nom": "Alpes-de-Haute-Provence",
       "phenomenes": [
         {
-          "phenomene": "Avalanches",
+          "phenomene": "Pluie-inondation",
           "niveau": "jaune",
           "debut": "2026-11-17T15:00:00+00:00",
           "fin": "2026-11-17T23:00:00+00:00"
         },
         {
-          "phenomene": "Pluie-inondation",
+          "phenomene": "Avalanches",
           "niveau": "jaune",
           "debut": "2026-11-17T15:00:00+00:00",
           "fin": "2026-11-17T23:00:00+00:00"
@@ -65,16 +65,16 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Pluie-inondation",
-            "niveau": "jaune",
-            "debut": "2026-11-17T23:00:00+00:00",
-            "fin": "2026-11-18T13:00:00+00:00"
-          },
-          {
             "phenomene": "Avalanches",
             "niveau": "jaune",
             "debut": "2026-11-17T23:00:00+00:00",
             "fin": "2026-11-18T23:00:00+00:00"
+          },
+          {
+            "phenomene": "Pluie-inondation",
+            "niveau": "jaune",
+            "debut": "2026-11-17T23:00:00+00:00",
+            "fin": "2026-11-18T13:00:00+00:00"
           }
         ],
         "debut": "2026-11-17T23:00:00+00:00",
