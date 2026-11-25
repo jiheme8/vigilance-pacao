@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-24",
-  "updated": "2026-11-24T17:30+00:00",
+  "date": "2026-11-25",
+  "updated": "2026-11-25T02:16+00:00",
   "source": "Meteo-France via Opendatasoft",
   "departements": {
     "04": {
@@ -13,7 +13,7 @@
         "niveau": "jaune",
         "phenomenes": [
           {
-            "phenomene": "Neige-verglas",
+            "phenomene": "Avalanches",
             "niveau": "jaune",
             "debut": "2026-11-24T23:00:00+00:00",
             "fin": "2026-11-25T23:00:00+00:00"
@@ -25,7 +25,7 @@
             "fin": "2026-11-25T21:00:00+00:00"
           },
           {
-            "phenomene": "Avalanches",
+            "phenomene": "Neige-verglas",
             "niveau": "jaune",
             "debut": "2026-11-24T23:00:00+00:00",
             "fin": "2026-11-25T23:00:00+00:00"
@@ -90,6 +90,12 @@
             "fin": "2026-11-25T21:00:00+00:00"
           },
           {
+            "phenomene": "Neige-verglas",
+            "niveau": "jaune",
+            "debut": "2026-11-24T23:00:00+00:00",
+            "fin": "2026-11-25T23:00:00+00:00"
+          },
+          {
             "phenomene": "Avalanches",
             "niveau": "jaune",
             "debut": "2026-11-24T23:00:00+00:00",
@@ -100,12 +106,6 @@
             "niveau": "jaune",
             "debut": "2026-11-24T23:00:00+00:00",
             "fin": "2026-11-25T17:00:00+00:00"
-          },
-          {
-            "phenomene": "Neige-verglas",
-            "niveau": "jaune",
-            "debut": "2026-11-24T23:00:00+00:00",
-            "fin": "2026-11-25T23:00:00+00:00"
           }
         ],
         "debut": "2026-11-24T23:00:00+00:00",
